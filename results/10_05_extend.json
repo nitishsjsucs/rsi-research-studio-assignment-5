@@ -1,0 +1,226 @@
+{
+  "paper readout": [
+    {
+      "seed": 0,
+      "best": {
+        "ngram": 2,
+        "word_weight": 1.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 1.0,
+        "vocab": 3000
+      },
+      "best_rate": 0.5625,
+      "heldout": 0.5208333333333334
+    },
+    {
+      "seed": 1,
+      "best": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "best_rate": 0.4791666666666667,
+      "heldout": 0.4375
+    },
+    {
+      "seed": 2,
+      "best": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 250,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 1000
+      },
+      "best_rate": 0.3541666666666667,
+      "heldout": 0.2708333333333333
+    }
+  ],
+  "readout+": [
+    {
+      "seed": 0,
+      "best": {
+        "ngram": 3,
+        "word_weight": 1.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "best_rate": 0.5208333333333334,
+      "heldout": 0.4583333333333333
+    },
+    {
+      "seed": 1,
+      "best": {
+        "ngram": 2,
+        "word_weight": 1.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 32,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 10000
+      },
+      "best_rate": 0.5208333333333334,
+      "heldout": 0.4427083333333333
+    },
+    {
+      "seed": 2,
+      "best": {
+        "ngram": 2,
+        "word_weight": 1.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 16,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "best_rate": 0.5208333333333334,
+      "heldout": 0.4583333333333333
+    }
+  ],
+  "parent_rate": [
+    {
+      "seed": 0,
+      "best": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "best_rate": 0.375,
+      "heldout": 0.28125
+    },
+    {
+      "seed": 1,
+      "best": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 4000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.001,
+        "vocab": 1000
+      },
+      "best_rate": 0.2708333333333333,
+      "heldout": 0.23958333333333334
+    },
+    {
+      "seed": 2,
+      "best": {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 4000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "best_rate": 0.20833333333333334,
+      "heldout": 0.125
+    }
+  ],
+  "readout (shallow training)": [
+    {
+      "seed": 0,
+      "best": {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 4000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.001,
+        "vocab": 3000
+      },
+      "best_rate": 0.1875,
+      "heldout": 0.15104166666666666
+    },
+    {
+      "seed": 1,
+      "best": {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 1,
+        "temp0": 4.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "best_rate": 0.10416666666666667,
+      "heldout": 0.052083333333333336
+    },
+    {
+      "seed": 2,
+      "best": {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 1,
+        "temp0": 4.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "best_rate": 0.14583333333333334,
+      "heldout": 0.09375
+    }
+  ]
+}

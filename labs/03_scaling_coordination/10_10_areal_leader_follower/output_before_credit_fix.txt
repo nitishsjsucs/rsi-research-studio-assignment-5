@@ -1,0 +1,68 @@
+$ python3 labs/03_scaling_coordination/10_10_areal_leader_follower/lab.py
+==============================================================================
+Lab 10.10 · Leader-follower coordination
+Question: Does sharing only replicated findings beat sharing everything, or sharing nothing?
+==============================================================================
+
+--- seed 0 · conditional ----------------------------------------------------
+  campaign 1: ['objective', 'search'] -> best R2/search 0.000->0.083 [resolved] team=0.083
+  campaign 2: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 3: ['efficiency', 'search'] -> best R1/efficiency 0.083->0.083 [unresolved] team=0.083
+  campaign 4: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 5: ['objective', 'efficiency'] -> best R1/objective 0.083->0.188 [resolved] team=0.188
+  campaign 6: ['objective', 'search'] -> best R2/search 0.188->0.208 [resolved] team=0.208
+  campaign 7: ['objective', 'efficiency'] -> best R1/objective 0.208->0.208 [unresolved] team=0.208
+  campaign 8: ['objective', 'diversify'] -> best R1/objective 0.208->0.208 [unresolved] team=0.208
+  campaign 9: ['search', 'objective'] -> best R1/search 0.208->0.208 [unresolved] team=0.208
+  campaign 10: ['objective', 'search'] -> best R1/objective 0.208->0.208 [unresolved] team=0.208
+  campaign 11: ['diversify', 'efficiency'] -> best R1/diversify 0.208->0.250 [resolved] team=0.250
+  campaign 12: ['diversify', 'objective'] -> best R1/diversify 0.250->0.458 [resolved] team=0.458
+  seed 0 conditional  final=0.458 campaigns=12 resolved=5 unresolved=7  2-gram words×2 rand hill polish 8x2000
+
+--- seed 0 · share_all ------------------------------------------------------
+  campaign 1: ['objective', 'search'] -> best R2/search 0.000->0.083 [resolved] team=0.083
+  campaign 2: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 3: ['efficiency', 'search'] -> best R1/efficiency 0.083->0.083 [unresolved] team=0.083
+  campaign 4: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 5: ['objective', 'efficiency'] -> best R1/objective 0.083->0.188 [resolved] team=0.188
+  campaign 6: ['objective', 'search'] -> best R1/objective 0.188->0.188 [unresolved] team=0.188
+  campaign 7: ['objective', 'efficiency'] -> best R2/efficiency 0.188->0.208 [resolved] team=0.208
+  campaign 8: ['objective', 'diversify'] -> best R2/diversify 0.208->0.271 [resolved] team=0.271
+  campaign 9: ['diversify', 'objective'] -> best R2/objective 0.271->0.312 [resolved] team=0.312
+  campaign 10: ['diversify', 'objective'] -> best R1/diversify 0.312->0.333 [resolved] team=0.333
+  campaign 11: ['efficiency', 'search'] -> best R2/search 0.333->0.333 [resolved] team=0.333
+  seed 0 share_all    final=0.333 campaigns=11 resolved=7 unresolved=4  3-gram words×2 freq anneal T4 polish 2x1000
+
+--- seed 0 · independent ----------------------------------------------------
+  seed 0 independent  final=0.312 campaigns=9 resolved=0 unresolved=0  3-gram rand anneal T2 polish 8x2000
+  seed 1 conditional  final=0.312 campaigns=7 resolved=5 unresolved=2  3-gram words×2 freq hill polish 2x1000
+  seed 1 share_all    final=0.542 campaigns=13 resolved=6 unresolved=7  2-gram words×2 rand hill polish vocab=1000 16x1000
+  seed 1 independent  final=0.438 campaigns=8 resolved=0 unresolved=0  3-gram words×2 freq anneal T2 polish 4x1000
+  seed 2 conditional  final=0.354 campaigns=10 resolved=4 unresolved=6  2-gram words×2 rand hill polish 4x1000
+  seed 2 share_all    final=0.500 campaigns=9 resolved=6 unresolved=3  2-gram words×2 freq hill polish k=0.1 16x1000
+  seed 2 independent  final=0.479 campaigns=10 resolved=0 unresolved=0  2-gram words×2 rand anneal T2 polish 16x1000
+
+--- Conditional memory after seed 0 -----------------------------------------
+  c1 R2/search     resolved   gain=+0.083 via ['add_polish', 'use_anneal', 'use_anneal']
+  c2 R1/search     unresolved gain=+0.000 via ['use_anneal', 'iters_up', 'iters_down']
+  c3 R1/efficiency unresolved gain=+0.000 via ['iters_down', 'remove_polish', 'remove_polish']
+  c4 R1/search     unresolved gain=+0.000 via ['remove_polish', 'use_anneal', 'use_anneal']
+  c5 R1/objective  resolved   gain=+0.104 via ['smoothing_down', 'ngram_up', 'add_words']
+  c6 R2/search     resolved   gain=+0.021 via ['iters_up', 'iters_up', 'iters_up']
+  c7 R1/objective  unresolved gain=+0.000 via ['smoothing_up', 'words_up', 'vocab_down']
+  c8 R1/objective  unresolved gain=+0.000 via ['smoothing_down', 'vocab_up', 'vocab_down']
+  c9 R1/search     unresolved gain=+0.000 via ['iters_up', 'iters_up', 'iters_up']
+  c10 R1/objective  unresolved gain=+0.000 via ['vocab_down', 'ngram_down', 'vocab_down']
+  c11 R1/diversify  resolved   gain=+0.042 via ['restarts_up', 'restarts_down', 'restarts_down']
+  c12 R1/diversify  resolved   gain=+0.208 via ['restarts_down', 'restarts_up', 'restarts_up']
+  orientation values: {'objective': 0.013, 'search': 0.015, 'diversify': 0.05, 'efficiency': 0.0}
+  skills retired by review: {'objective': ['smoothing_down', 'smoothing_up', 'vocab_down', 'vocab_up', 'words_up'], 'search': ['iters_down', 'iters_up', 'remove_polish', 'use_anneal'], 'diversify': ['init_frequency', 'iters_down', 'use_anneal'], 'efficiency': ['init_frequency', 'iters_down', 'remove_polish', 'swap_ranked']}
+
+--- Results -----------------------------------------------------------------
+  variant      steering       held-out       campaigns  shared findings
+  -----------  -------------  -------------  ---------  ---------------
+  conditional  0.375 ± 0.075  0.321 ± 0.060  9.7        4.7            
+  share_all    0.458 ± 0.110  0.406 ± 0.054  11.0       6.3            
+  independent  0.410 ± 0.087  0.398 ± 0.097  9.0        0.0            
+
+done in 158s

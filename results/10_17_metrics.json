@@ -1,0 +1,44 @@
+[
+  [
+    "RSI-Index (RSIGym)",
+    "data=0.006, harness=0.132, joint=0.262",
+    "fraction of remaining gap closed, averaged over benchmarks",
+    "comparing systems across benchmarks of different difficulty",
+    "ideal=1.0 is unreachable for short ciphers; hides which benchmark moved"
+  ],
+  [
+    "Steering-split solve rate (Budget RSI)",
+    "readout steer-heldout gap=+0.056, parent_rate steer-heldout gap=+0.069, oracle steer-heldout gap=+0.024",
+    "performance on the split used to select",
+    "cheap per-candidate signal during search",
+    "inflated by selection (10.01); different text source from held-out"
+  ],
+  [
+    "Recursive learnability (R2Orch)",
+    "mean p(1-p) of chosen tasks = 0.160 over 12 choices",
+    "how informative the self-chosen task is (max 0.25 at p=0.5)",
+    "letting an improver pick its own curriculum",
+    "0 everywhere at the start (nothing partly solved), so it needs a fallback"
+  ],
+  [
+    "Swarm diversity (SwarmRSI)",
+    "full=0.06 vs no-migration=0.20",
+    "mean pairwise fraction of genome fields that differ",
+    "detecting a swarm that has collapsed to one idea",
+    "high diversity is not high quality: no-migration is diverse and worse"
+  ],
+  [
+    "Thrash rate (SO-RSI behaviour)",
+    "naive=0.38/step, so-rsi=0.33/step",
+    "opposing + recurrent edits per improvement step",
+    "spotting first-order trial-and-error",
+    "a low thrash rate can also mean the improver stopped exploring"
+  ],
+  [
+    "Cost-normalised gain (ours)",
+    "so-rsi=0.248, naive=0.288, conditional=0.107, adaptive=0.299",
+    "held-out solve rate per 1,000 instance-runs",
+    "comparing methods whose budgets differ",
+    "not linear: the first runs buy more than the last"
+  ]
+]

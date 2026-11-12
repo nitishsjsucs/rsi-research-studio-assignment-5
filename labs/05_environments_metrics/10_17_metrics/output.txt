@@ -1,0 +1,41 @@
+$ python3 labs/05_environments_metrics/10_17_metrics/lab.py
+==============================================================================
+Lab 10.17 · Analyse metrics
+Question: What does each October 2026 metric say about our runs, and what does it hide?
+==============================================================================
+
+  RSI-Index (RSIGym)
+    our runs   : data=0.006, harness=0.132, joint=0.262
+    measures   : fraction of remaining gap closed, averaged over benchmarks
+    useful when: comparing systems across benchmarks of different difficulty
+    limitation : ideal=1.0 is unreachable for short ciphers; hides which benchmark moved
+
+  Steering-split solve rate (Budget RSI)
+    our runs   : readout steer-heldout gap=+0.056, parent_rate steer-heldout gap=+0.069, oracle steer-heldout gap=+0.024
+    measures   : performance on the split used to select
+    useful when: cheap per-candidate signal during search
+    limitation : inflated by selection (10.01); different text source from held-out
+
+  Recursive learnability (R2Orch)
+    our runs   : mean p(1-p) of chosen tasks = 0.160 over 12 choices
+    measures   : how informative the self-chosen task is (max 0.25 at p=0.5)
+    useful when: letting an improver pick its own curriculum
+    limitation : 0 everywhere at the start (nothing partly solved), so it needs a fallback
+
+  Swarm diversity (SwarmRSI)
+    our runs   : full=0.06 vs no-migration=0.20
+    measures   : mean pairwise fraction of genome fields that differ
+    useful when: detecting a swarm that has collapsed to one idea
+    limitation : high diversity is not high quality: no-migration is diverse and worse
+
+  Thrash rate (SO-RSI behaviour)
+    our runs   : naive=0.38/step, so-rsi=0.33/step
+    measures   : opposing + recurrent edits per improvement step
+    useful when: spotting first-order trial-and-error
+    limitation : a low thrash rate can also mean the improver stopped exploring
+
+  Cost-normalised gain (ours)
+    our runs   : so-rsi=0.248, naive=0.288, conditional=0.107, adaptive=0.299
+    measures   : held-out solve rate per 1,000 instance-runs
+    useful when: comparing methods whose budgets differ
+    limitation : not linear: the first runs buy more than the last

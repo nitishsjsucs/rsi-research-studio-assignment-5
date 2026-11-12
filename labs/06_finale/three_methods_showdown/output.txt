@@ -1,0 +1,43 @@
+$ python3 labs/06_finale/three_methods_showdown/lab.py
+==============================================================================
+Lab Finale · Three RSI methods, one budget
+Question: Under matched compute, which improvement procedure produces the best cipher breaker on unseen text?
+==============================================================================
+  seed 0 naive (first-order)  steering=0.521 runs=1920  4-gram freq anneal T8 polish 8x8000
+  seed 0 Budget RSI           steering=0.562 runs=1920  2-gram words×1 freq hill polish k=1 8x2000
+  seed 0 SO-RSI               steering=0.521 runs=1920  2-gram words×2 rand anneal T2 vocab=10000 16x2000
+  seed 0 SwarmRSI             steering=0.125 runs=1920  2-gram rand anneal T2 polish 1x2000
+  seed 1 naive (first-order)  steering=0.583 runs=1920  2-gram words×2 freq anneal T2 8x8000
+  seed 1 Budget RSI           steering=0.479 runs=1920  2-gram words×2 freq hill polish 8x2000
+  seed 1 SO-RSI               steering=0.521 runs=1920  2-gram words×1 rand anneal T2 k=0.001 vocab=10000 16x2000
+  seed 1 SwarmRSI             steering=0.625 runs=1920  2-gram words×2 rand anneal T2 polish k=0.1 vocab=1000 8x2000
+  seed 2 naive (first-order)  steering=0.625 runs=1920  3-gram words×2 freq anneal T8 k=0.1 4x8000
+  seed 2 Budget RSI           steering=0.354 runs=1920  2-gram words×2 freq hill polish k=0.1 vocab=1000 2x250
+  seed 2 SO-RSI               steering=0.625 runs=1920  3-gram words×4 freq anneal T8 4x8000
+  seed 2 SwarmRSI             steering=0.312 runs=1920  2-gram words×1 freq hill polish 2x2000
+
+--- Held-out and five-benchmark report (unsealed once, here) ----------------
+
+--- Audit -------------------------------------------------------------------
+  [PASS] sealed held-out  held-out touched only in the final report
+  [PASS] matched budgets  naive (first-order): 1920-1920 runs, Budget RSI: 1920-1920 runs, SO-RSI: 1920-1920 runs, SwarmRSI: 1920-1920 runs
+  [PASS] enough seeds     naive (first-order): 3, Budget RSI: 3, SO-RSI: 3, SwarmRSI: 3
+  [PASS] gap reported     steering and held-out recorded for every run
+
+--- Results -----------------------------------------------------------------
+  method               steering       held-out (Frankenstein)  RSI-Index (5 benchmarks)  runs
+  -------------------  -------------  -----------------------  ------------------------  ----
+  naive (first-order)  0.576 ± 0.052  0.554 ± 0.090            0.381 ± 0.061             1920
+  Budget RSI           0.465 ± 0.105  0.410 ± 0.127            0.263 ± 0.054             1920
+  SO-RSI               0.556 ± 0.060  0.476 ± 0.120            0.315 ± 0.112             1920
+  SwarmRSI             0.354 ± 0.253  0.288 ± 0.174            0.191 ± 0.118             1920
+
+--- Best program found, per method ------------------------------------------
+  naive (first-order)  0.651  3-gram words×2 freq anneal T8 k=0.1 4x8000
+  Budget RSI           0.521  2-gram words×1 freq hill polish k=1 8x2000
+  SO-RSI               0.589  3-gram words×4 freq anneal T8 4x8000
+  SwarmRSI             0.443  2-gram words×2 rand anneal T2 polish k=0.1 vocab=1000 8x2000
+
+  baseline program held-out: 0.000; audit passed
+
+done in 613s

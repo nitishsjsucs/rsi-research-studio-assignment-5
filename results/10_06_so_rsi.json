@@ -1,0 +1,4452 @@
+{
+  "naive": [
+    {
+      "second_order": false,
+      "seed": 0,
+      "final": {
+        "ngram": 4,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 8.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5208333333333334,
+      "rounds": 39,
+      "accepted": 13,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.08333333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "2-gram rand hill polish 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill ranked polish 2x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill polish 4x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.14583333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 4x2000",
+          "child": "2-gram rand anneal T2 polish 4x2000",
+          "parent_rate": 0.14583333333333334,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 polish 4x2000",
+          "child": "2-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "2-gram rand anneal T2 ranked polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.08333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "2-gram rand anneal T1 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.16666666666666666,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "3-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.3125,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T2 polish 8x2000",
+          "child": "3-gram freq anneal T2 polish 8x2000",
+          "parent_rate": 0.3125,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.3125,
+          "child_rate": 0.3541666666666667,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T1 polish 8x2000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T2 polish 8x4000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.3958333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram freq anneal T2 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 16x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 8x8000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 16x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "3-gram rand anneal T2 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 8x8000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T4 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T4 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 8x4000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4791666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand hill polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.25,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 16x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish k=0.001 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish k=0.001 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 16x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 8x8000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T4 polish 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.2708333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 16x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 8x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 16x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram freq anneal T8 polish 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5208333333333334,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "4-gram freq anneal T8 polish 8x8000",
+          "child": "4-gram freq anneal T8 ranked polish 8x8000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.08333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.10416666666666667,
+        0.14583333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.3125,
+        0.3125,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.4583333333333333,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 15,
+        "recurrence": 11,
+        "opposing": 1
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.4739583333333333
+    },
+    {
+      "second_order": false,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5833333333333334,
+      "rounds": 39,
+      "accepted": 9,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill k=0.1 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.1875,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 2x2000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.25,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 2x4000",
+          "parent_rate": 0.25,
+          "child_rate": 0.25,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 4x2000",
+          "parent_rate": 0.25,
+          "child_rate": 0.3333333333333333,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq hill 4x2000",
+          "child": "3-gram words\u00d72 freq hill 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq hill 4x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.3541666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 4x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x2000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x4000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5833333333333334,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d74 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 vocab=10000 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 k=0.001 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "words_down",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d71 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 vocab=10000 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d74 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq hill 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 4x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 k=0.1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "3-gram words\u00d72 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.25,
+        0.25,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3541666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 16,
+        "opposing": 11,
+        "recurrence": 6
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.5364583333333334
+    },
+    {
+      "second_order": false,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 4,
+        "temp0": 8.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "final_rate": 0.625,
+      "rounds": 39,
+      "accepted": 14,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 1x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.020833333333333332,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x2000",
+          "child": "2-gram rand hill 1x4000",
+          "parent_rate": 0.020833333333333332,
+          "child_rate": 0.0625,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill polish 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "1-gram rand hill 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill 2x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x4000",
+          "child": "2-gram rand anneal T2 2x4000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.125,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 2x4000",
+          "child": "2-gram rand anneal T2 2x8000",
+          "parent_rate": 0.125,
+          "child_rate": 0.22916666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x8000",
+          "parent_rate": 0.22916666666666666,
+          "child_rate": 0.2708333333333333,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x16000",
+          "parent_rate": 0.2708333333333333,
+          "child_rate": 0.2916666666666667,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T2 2x16000",
+          "child": "3-gram rand anneal T4 2x16000",
+          "parent_rate": 0.2916666666666667,
+          "child_rate": 0.375,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 1x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 2x32000",
+          "parent_rate": 0.375,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 4x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T8 2x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.4375,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand anneal T8 4x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand hill 2x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.125,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4166666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 4x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram freq anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T4 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 ranked k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 4x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "remove_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 ranked k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 freq anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.6041666666666666,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.625,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.6041666666666666,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T8 k=0.1 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.625,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333,
+        0.2916666666666667,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "anomaly_counts": {
+        "opposing": 9,
+        "mismatch": 12,
+        "recurrence": 6
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.6510416666666666
+    }
+  ],
+  "so-rsi": [
+    {
+      "second_order": true,
+      "seed": 0,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 2000,
+        "restarts": 16,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 10000
+      },
+      "final_rate": 0.5208333333333334,
+      "rounds": 31,
+      "accepted": 10,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.08333333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "2-gram rand hill 4x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.08333333333333333,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram rand hill 4x2000",
+          "child": "2-gram rand hill k=0.1 4x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.125,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill k=0.1 4x2000",
+          "child": "2-gram rand hill k=0.1 8x2000",
+          "parent_rate": 0.125,
+          "child_rate": 0.16666666666666666,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill k=0.1 8x2000",
+          "child": "2-gram rand anneal T2 k=0.1 8x2000",
+          "parent_rate": 0.16666666666666666,
+          "child_rate": 0.14583333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill k=0.1 8x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.1 8x2000",
+          "parent_rate": 0.16666666666666666,
+          "child_rate": 0.4375,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill k=0.1 8x2000",
+          "child": "2-gram words\u00d72 rand hill 8x2000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.4583333333333333,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d72 rand hill polish 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "3-gram words\u00d72 rand hill 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d72 rand hill ranked 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "3-gram words\u00d72 rand hill 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4166666666666667,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "words_down",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d71 rand hill 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d72 rand hill ranked 8x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 8x2000",
+          "child": "2-gram words\u00d72 rand hill 16x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "2-gram words\u00d72 rand hill 32x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "2-gram words\u00d72 rand hill 32x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "3-gram words\u00d72 rand hill 16x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "2-gram words\u00d74 rand hill 16x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "2-gram words\u00d72 freq hill 16x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 16x2000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4791666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand anneal T2 16x2000",
+          "child": "2-gram words\u00d72 rand hill 16x2000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand anneal T2 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 8x2000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4166666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "vocab_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand anneal T2 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 vocab=1000 16x2000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand anneal T2 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 vocab=10000 16x2000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.5208333333333334,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand anneal T2 vocab=10000 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T1 vocab=10000 16x2000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand anneal T2 vocab=10000 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T1 vocab=10000 16x2000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand anneal T2 vocab=10000 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 polish vocab=10000 16x2000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.5208333333333334,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.125,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.4375,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 13,
+        "recurrence": 5,
+        "opposing": 3
+      },
+      "diagnoses": [
+        {
+          "round": 1,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 1,
+              "evidence": "restarts_up expected +0.04, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=48/48 obj_gap=0.35 stalled=0.44 under=0.46 cap=0.00 var=0.00 [short=0.00 medium=0.00 long=0.00]",
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "35% of failures score the wrong key at least as high as the true key",
+            "46% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 3,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 3,
+              "evidence": "ngram_up expected +0.06, observed -0.021"
+            }
+          ],
+          "diagnosis": "fail=47/48 obj_gap=0.51 stalled=0.43 under=0.40 cap=0.00 var=0.04 [short=0.00 medium=0.00 long=0.08]",
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "51% of failures score the wrong key at least as high as the true key",
+            "40% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 5,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 5,
+              "evidence": "restarts_up expected +0.04, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=45/48 obj_gap=0.58 stalled=0.51 under=0.24 cap=0.00 var=0.12 [short=0.00 medium=0.00 long=0.25]",
+          "mechanisms": [
+            "objective",
+            "local_optima"
+          ],
+          "evidence": [
+            "58% of failures score the wrong key at least as high as the true key",
+            "51% of failures stopped improving in the first half of their budget"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up"
+          ],
+          "futile": [
+            "iters_up",
+            "temp_down",
+            "add_polish",
+            "use_hill",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 8,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 8,
+              "evidence": "use_anneal expected +0.04, observed -0.021"
+            }
+          ],
+          "diagnosis": "fail=40/48 obj_gap=0.72 stalled=0.42 under=0.33 cap=0.00 var=0.08 [short=0.00 medium=0.00 long=0.67]",
+          "mechanisms": [
+            "objective",
+            "short_texts"
+          ],
+          "evidence": [
+            "72% of failures score the wrong key at least as high as the true key",
+            "short ciphers solve 0% vs long 67%"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "temp_up",
+            "temp_down",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 10,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 10,
+              "evidence": "smoothing_down follows its inverse smoothing_up within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=33/48 obj_gap=0.00 stalled=0.42 under=0.30 cap=0.00 var=0.29 [short=0.08 medium=0.33 long=0.75]",
+          "mechanisms": [
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "short ciphers solve 8% vs long 75%",
+            "29% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up",
+            "restarts_up",
+            "use_anneal"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 18,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 18,
+              "evidence": "restarts_up expected +0.04, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=32/48 obj_gap=0.00 stalled=0.38 under=0.00 cap=1.00 var=0.33 [short=0.08 medium=0.33 long=0.83]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 8% vs long 83%",
+            "33% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "iters_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 25,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 25,
+              "evidence": "use_hill follows its inverse use_anneal within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=32/48 obj_gap=0.00 stalled=0.44 under=0.00 cap=1.00 var=0.17 [short=0.04 medium=0.25 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 28,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 28,
+              "evidence": "vocab_up follows its inverse vocab_down within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=29/48 obj_gap=0.00 stalled=0.31 under=0.00 cap=1.00 var=0.12 [short=0.08 medium=0.42 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 8% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "round": 1,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "35% of failures score the wrong key at least as high as the true key",
+            "46% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 3,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "51% of failures score the wrong key at least as high as the true key",
+            "40% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 5,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "objective",
+            "local_optima"
+          ],
+          "evidence": [
+            "58% of failures score the wrong key at least as high as the true key",
+            "51% of failures stopped improving in the first half of their budget"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up"
+          ],
+          "futile": [
+            "iters_up",
+            "temp_down",
+            "add_polish",
+            "use_hill",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 8,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "objective",
+            "short_texts"
+          ],
+          "evidence": [
+            "72% of failures score the wrong key at least as high as the true key",
+            "short ciphers solve 0% vs long 67%"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "temp_up",
+            "temp_down",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 10,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "short ciphers solve 8% vs long 75%",
+            "29% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up",
+            "restarts_up",
+            "use_anneal"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 18,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 8% vs long 83%",
+            "33% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "iters_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 25,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 28,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 8% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "open"
+        }
+      ],
+      "heldout": 0.3489583333333333
+    },
+    {
+      "second_order": true,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 1.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 2000,
+        "restarts": 16,
+        "temp0": 2.0,
+        "smoothing": 0.001,
+        "vocab": 10000
+      },
+      "final_rate": 0.5208333333333334,
+      "rounds": 31,
+      "accepted": 10,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill k=0.001 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill ranked 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.1875,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 2x2000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 2x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.3333333333333333,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 2x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "child": "1-gram words\u00d72 rand hill k=0.001 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "child": "2-gram words\u00d72 rand hill ranked k=0.001 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.4166666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram words\u00d74 rand hill k=0.001 8x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 vocab=10000 8x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram words\u00d74 rand hill k=0.001 8x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 4x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "remove_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram rand hill k=0.001 8x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.4166666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "child": "2-gram words\u00d74 rand hill k=0.001 16x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "child": "2-gram words\u00d74 rand hill k=0.001 16x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 vocab=10000 16x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 8x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.4166666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "parent_rate": 0.4166666666666667,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 k=0.001 vocab=10000 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 k=0.001 vocab=10000 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 k=0.001 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 k=0.001 8x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "words_down",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d71 rand anneal T2 k=0.001 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d71 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d72 rand anneal T2 k=0.001 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d71 rand anneal T2 k=0.001 16x2000",
+          "child": "2-gram words\u00d71 rand anneal T2 k=0.001 vocab=10000 16x2000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5208333333333334,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d71 rand anneal T2 k=0.001 vocab=10000 16x2000",
+          "child": "2-gram words\u00d71 rand anneal T2 k=0.001 vocab=10000 32x2000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.5208333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.20833333333333334,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.4166666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 5,
+        "opposing": 8,
+        "recurrence": 6
+      },
+      "diagnoses": [
+        {
+          "round": 1,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 1,
+              "evidence": "restarts_up expected +0.04, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=48/48 obj_gap=0.35 stalled=0.44 under=0.46 cap=0.00 var=0.00 [short=0.00 medium=0.00 long=0.00]",
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "35% of failures score the wrong key at least as high as the true key",
+            "46% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 3,
+          "anomalies": [
+            {
+              "kind": "mismatch",
+              "round": 3,
+              "evidence": "add_words expected +0.05, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=47/48 obj_gap=0.00 stalled=0.40 under=0.60 cap=0.00 var=0.04 [short=0.00 medium=0.00 long=0.08]",
+          "mechanisms": [
+            "undersearched"
+          ],
+          "evidence": [
+            "60% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "iters_down",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 6,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 6,
+              "evidence": "iters_down follows its inverse iters_up within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=43/48 obj_gap=0.00 stalled=0.44 under=0.35 cap=0.00 var=0.12 [short=0.00 medium=0.00 long=0.42]",
+          "mechanisms": [
+            "short_texts"
+          ],
+          "evidence": [
+            "short ciphers solve 0% vs long 42%"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up"
+          ]
+        },
+        {
+          "round": 9,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 9,
+              "evidence": "restarts_down follows its inverse restarts_up within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=37/48 obj_gap=0.00 stalled=0.54 under=0.22 cap=0.00 var=0.12 [short=0.00 medium=0.08 long=0.83]",
+          "mechanisms": [
+            "local_optima",
+            "short_texts"
+          ],
+          "evidence": [
+            "54% of failures stopped improving in the first half of their budget",
+            "short ciphers solve 0% vs long 83%"
+          ],
+          "recommended": [
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "use_hill",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 12,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 12,
+              "evidence": "restarts_up follows its inverse restarts_down within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=32/48 obj_gap=0.00 stalled=0.44 under=0.12 cap=0.00 var=0.17 [short=0.04 medium=0.25 long=1.00]",
+          "mechanisms": [
+            "short_texts"
+          ],
+          "evidence": [
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up"
+          ]
+        },
+        {
+          "round": 18,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 18,
+              "evidence": "restarts_up follows its inverse restarts_down within 6 steps"
+            },
+            {
+              "kind": "mismatch",
+              "round": 18,
+              "evidence": "restarts_up expected +0.04, observed no change at all"
+            }
+          ],
+          "diagnosis": "fail=32/48 obj_gap=0.00 stalled=0.38 under=0.00 cap=1.00 var=0.17 [short=0.04 medium=0.25 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 24,
+          "anomalies": [
+            {
+              "kind": "recurrence",
+              "round": 24,
+              "evidence": "vocab_up rejected 2x in the last 6 attempts"
+            }
+          ],
+          "diagnosis": "fail=31/48 obj_gap=0.03 stalled=0.42 under=0.00 cap=1.00 var=0.12 [short=0.00 medium=0.42 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 0% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 29,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 29,
+              "evidence": "words_up follows its inverse words_down within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=30/48 obj_gap=0.03 stalled=0.57 under=0.00 cap=1.00 var=0.08 [short=0.04 medium=0.42 long=1.00]",
+          "mechanisms": [
+            "local_optima",
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "57% of failures stopped improving in the first half of their budget",
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up",
+            "restarts_down",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "use_hill",
+            "add_polish"
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "round": 1,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "objective",
+            "undersearched"
+          ],
+          "evidence": [
+            "35% of failures score the wrong key at least as high as the true key",
+            "46% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "temp_up",
+            "temp_down",
+            "add_polish",
+            "iters_down",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 3,
+          "anomalies": [
+            "mismatch"
+          ],
+          "mechanisms": [
+            "undersearched"
+          ],
+          "evidence": [
+            "60% of failures were still improving when the program stopped itself"
+          ],
+          "recommended": [
+            "iters_up",
+            "restarts_up"
+          ],
+          "futile": [
+            "iters_down",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 6,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "short_texts"
+          ],
+          "evidence": [
+            "short ciphers solve 0% vs long 42%"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up"
+          ],
+          "status": "inconclusive"
+        },
+        {
+          "round": 9,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "local_optima",
+            "short_texts"
+          ],
+          "evidence": [
+            "54% of failures stopped improving in the first half of their budget",
+            "short ciphers solve 0% vs long 83%"
+          ],
+          "recommended": [
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "use_hill",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 12,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "short_texts"
+          ],
+          "evidence": [
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up"
+          ],
+          "status": "inconclusive"
+        },
+        {
+          "round": 18,
+          "anomalies": [
+            "opposing",
+            "mismatch"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 24,
+          "anomalies": [
+            "recurrence"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 0% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 29,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "local_optima",
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "57% of failures stopped improving in the first half of their budget",
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 4% vs long 100%"
+          ],
+          "recommended": [
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up",
+            "restarts_down",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "use_hill",
+            "add_polish"
+          ],
+          "status": "supported"
+        }
+      ],
+      "heldout": 0.4895833333333333
+    },
+    {
+      "second_order": true,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 4.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 4,
+        "temp0": 8.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.625,
+      "rounds": 35,
+      "accepted": 12,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 1x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.020833333333333332,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x2000",
+          "child": "2-gram rand hill 1x4000",
+          "parent_rate": 0.020833333333333332,
+          "child_rate": 0.0625,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill polish 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "1-gram rand hill 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill 2x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x4000",
+          "child": "2-gram rand anneal T2 2x4000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.125,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 2x4000",
+          "child": "2-gram rand anneal T2 2x8000",
+          "parent_rate": 0.125,
+          "child_rate": 0.22916666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x8000",
+          "parent_rate": 0.22916666666666666,
+          "child_rate": 0.2708333333333333,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T2 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T2 2x8000",
+          "parent_rate": 0.2708333333333333,
+          "child_rate": 0.3333333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T2 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T4 2x8000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.4791666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T4 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T4 1x8000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "words_down",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T4 2x8000",
+          "child": "3-gram words\u00d71 rand anneal T4 2x8000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T4 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T4 4x8000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.5833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T4 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T4 4x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 freq anneal T4 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T4 4x4000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5208333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 freq anneal T4 4x8000",
+          "child": "3-gram words\u00d72 freq hill 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5208333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "3-gram words\u00d72 freq anneal T4 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T4 vocab=10000 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 freq anneal T4 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T8 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T8 4x4000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.625,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 4x16000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 2x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 vocab=10000 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.625,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 ranked 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 4x4000",
+          "parent_rate": 0.625,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 vocab=10000 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.625,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 2x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T16 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "2-gram words\u00d74 freq anneal T8 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "2-gram words\u00d74 freq anneal T8 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 4x16000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 ranked 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T4 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T8 polish 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.625,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d74 freq anneal T8 4x8000",
+          "child": "3-gram words\u00d74 freq anneal T16 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333,
+        0.3333333333333333,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.5833333333333334,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "anomaly_counts": {
+        "opposing": 6,
+        "recurrence": 4,
+        "mismatch": 2
+      },
+      "diagnoses": [
+        {
+          "round": 8,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 8,
+              "evidence": "ngram_up follows its inverse ngram_down within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=34/48 obj_gap=0.47 stalled=0.53 under=0.35 cap=0.00 var=0.25 [short=0.00 medium=0.42 long=0.75]",
+          "mechanisms": [
+            "objective",
+            "local_optima",
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "47% of failures score the wrong key at least as high as the true key",
+            "53% of failures stopped improving in the first half of their budget",
+            "short ciphers solve 0% vs long 75%",
+            "25% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up"
+          ],
+          "futile": [
+            "iters_up",
+            "temp_down",
+            "add_polish",
+            "use_hill",
+            "restarts_down"
+          ]
+        },
+        {
+          "round": 13,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 13,
+              "evidence": "restarts_up follows its inverse restarts_down within 6 steps"
+            }
+          ],
+          "diagnosis": "fail=19/48 obj_gap=0.11 stalled=0.47 under=0.00 cap=1.00 var=0.21 [short=0.25 medium=0.92 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 25% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 19,
+          "anomalies": [
+            {
+              "kind": "recurrence",
+              "round": 19,
+              "evidence": "iters_down rejected 2x in the last 6 attempts"
+            }
+          ],
+          "diagnosis": "fail=19/48 obj_gap=0.00 stalled=0.32 under=0.00 cap=1.00 var=0.21 [short=0.25 medium=0.92 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 25% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        },
+        {
+          "round": 21,
+          "anomalies": [
+            {
+              "kind": "opposing",
+              "round": 21,
+              "evidence": "iters_up follows its inverse iters_down within 6 steps"
+            },
+            {
+              "kind": "mismatch",
+              "round": 21,
+              "evidence": "iters_up expected +0.05, observed -0.062"
+            }
+          ],
+          "diagnosis": "fail=19/48 obj_gap=0.05 stalled=0.47 under=0.00 cap=1.00 var=0.12 [short=0.38 medium=0.67 long=1.00]",
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 38% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "round": 8,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "objective",
+            "local_optima",
+            "short_texts",
+            "high_variance"
+          ],
+          "evidence": [
+            "47% of failures score the wrong key at least as high as the true key",
+            "53% of failures stopped improving in the first half of their budget",
+            "short ciphers solve 0% vs long 75%",
+            "25% of ciphers flip between pass and fail across seeds"
+          ],
+          "recommended": [
+            "ngram_up",
+            "add_words",
+            "words_up",
+            "smoothing_down",
+            "vocab_up",
+            "use_anneal",
+            "restarts_up",
+            "init_frequency",
+            "temp_up"
+          ],
+          "futile": [
+            "iters_up",
+            "temp_down",
+            "add_polish",
+            "use_hill",
+            "restarts_down"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 13,
+          "anomalies": [
+            "opposing"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 25% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 19,
+          "anomalies": [
+            "recurrence"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 25% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "supported"
+        },
+        {
+          "round": 21,
+          "anomalies": [
+            "opposing",
+            "mismatch"
+          ],
+          "mechanisms": [
+            "cap_bound",
+            "short_texts"
+          ],
+          "evidence": [
+            "100% of failures hit the harness cap of evaluations",
+            "short ciphers solve 38% vs long 100%"
+          ],
+          "recommended": [
+            "init_frequency",
+            "restarts_down",
+            "use_anneal",
+            "remove_polish",
+            "add_words",
+            "words_up",
+            "vocab_up"
+          ],
+          "futile": [
+            "iters_up",
+            "restarts_up",
+            "add_polish"
+          ],
+          "status": "inconclusive"
+        }
+      ],
+      "heldout": 0.5885416666666666
+    }
+  ]
+}

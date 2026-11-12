@@ -1,0 +1,55 @@
+$ python3 labs/05_environments_metrics/10_15_rsi_index/lab.py
+==============================================================================
+Lab 10.15 · Calculate the RSI-Index
+Question: What fraction of the remaining gap does each track close, across benchmarks?
+==============================================================================
+
+--- 1. The course's worked example, both formulas ---------------------------
+  as printed  (initial - final)/(ideal - initial): -0.500
+  corrected   (final - initial)/(ideal - initial): +0.500
+  The page's own arithmetic (25/50, 40/80) uses final - initial; the printed formula has the sign flipped.
+
+--- 2. RSIGym tracks (1440 runs each, 2 seeds) ------------------------------
+  data     edits: ngram_up, ngram_down, add_words, remove_words, words_up, words_down, smoothing_up, smoothing_down ...
+           services: ['evaluate', 'sandbox', 'train']
+  harness  edits: iters_up, iters_down, restarts_up, restarts_down, use_anneal, use_hill, temp_up, temp_down ...
+           services: ['evaluate', 'rollout', 'sandbox']
+  joint    edits: ngram_up, ngram_down, add_words, remove_words, words_up, words_down, iters_up, iters_down ...
+           services: ['evaluate', 'rollout', 'sandbox', 'train']
+  permission check: track 'data' may not call 'rollout'
+  data     smoothing_up    -> 0.000
+  data     ngram_up        -> 0.021
+  seed 0 data     -> 3-gram rand hill k=0.1 1x1000   service calls {'sandbox': 29, 'train': 29, 'rollout': 0, 'evaluate': 30}
+  harness  init_frequency  -> 0.000
+  harness  add_polish      -> 0.042
+  harness  use_anneal      -> 0.062
+  harness  restarts_up     -> 0.125
+  harness  temp_up         -> 0.125
+  harness  restarts_up     -> 0.125
+  harness  iters_up        -> 0.167
+  harness  iters_up        -> 0.188
+  seed 0 harness  -> 2-gram freq anneal T4 polish 4x4000   service calls {'sandbox': 29, 'train': 0, 'rollout': 0, 'evaluate': 30}
+  joint    smoothing_up    -> 0.000
+  joint    add_polish      -> 0.062
+  joint    use_anneal      -> 0.083
+  joint    iters_up        -> 0.083
+  joint    ngram_up        -> 0.146
+  joint    add_words       -> 0.312
+  joint    restarts_up     -> 0.375
+  seed 0 joint    -> 3-gram words×2 rand anneal T2 polish k=0.1 2x2000   service calls {'sandbox': 29, 'train': 14, 'rollout': 0, 'evaluate': 30}
+  seed 1 data     -> 3-gram rand hill k=0.1 1x1000   service calls {'sandbox': 29, 'train': 29, 'rollout': 0, 'evaluate': 30}
+  seed 1 harness  -> 2-gram rand anneal T2 polish 8x4000   service calls {'sandbox': 29, 'train': 0, 'rollout': 0, 'evaluate': 30}
+  seed 1 joint    -> 3-gram freq anneal T4 k=0.1 8x4000   service calls {'sandbox': 29, 'train': 8, 'rollout': 0, 'evaluate': 30}
+
+--- 3. Scores per benchmark and RSI-Index -----------------------------------
+  track     sherlock  short_only  patristocrat  tight_budget  frankenstein  RSI-Index    
+  --------  --------  ----------  ------------  ------------  ------------  -------------
+  baseline  0.000     0.000       0.010         0.000         0.000         0            
+  data      0.010     0.000       0.010         0.010         0.010         0.006 ± 0.000
+  harness   0.219     0.000       0.135         0.089         0.227         0.132 ± 0.011
+  joint     0.385     0.048       0.266         0.266         0.352         0.262 ± 0.028
+
+  'frankenstein' is the sealed held-out benchmark; the other four were reachable during search only via 'sherlock'.
+  short_only and patristocrat show transfer: a track that only tuned for spaced, mixed-length text may not help there.
+
+done in 75s

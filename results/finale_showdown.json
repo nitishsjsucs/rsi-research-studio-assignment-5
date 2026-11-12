@@ -1,0 +1,344 @@
+{
+  "budget": 1920,
+  "initial": {
+    "sherlock": 0.0,
+    "short_only": 0.0,
+    "patristocrat": 0.010416666666666666,
+    "tight_budget": 0.0,
+    "frankenstein": 0.0
+  },
+  "arms": {
+    "naive (first-order)": [
+      {
+        "seed": 0,
+        "program": {
+          "ngram": 4,
+          "word_weight": 0.0,
+          "init": "frequency",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 8000,
+          "restarts": 8,
+          "temp0": 8.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.5208333333333334,
+        "runs_spent": 1920,
+        "heldout": 0.4739583333333333,
+        "benchmarks": {
+          "sherlock": 0.5,
+          "short_only": 0.11904761904761904,
+          "patristocrat": 0.4270833333333333,
+          "tight_budget": 0.25,
+          "frankenstein": 0.4739583333333333
+        },
+        "rsi_index": 0.3528117167919799
+      },
+      {
+        "seed": 1,
+        "program": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 8000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.5833333333333334,
+        "runs_spent": 1920,
+        "heldout": 0.5364583333333334,
+        "benchmarks": {
+          "sherlock": 0.5520833333333334,
+          "short_only": 0.21428571428571427,
+          "patristocrat": 0.11458333333333333,
+          "tight_budget": 0.2916666666666667,
+          "frankenstein": 0.5364583333333334
+        },
+        "rsi_index": 0.33995144110275693
+      },
+      {
+        "seed": 2,
+        "program": {
+          "ngram": 3,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 8000,
+          "restarts": 4,
+          "temp0": 8.0,
+          "smoothing": 0.1,
+          "vocab": 3000
+        },
+        "steering": 0.625,
+        "runs_spent": 1920,
+        "heldout": 0.6510416666666666,
+        "benchmarks": {
+          "sherlock": 0.6145833333333334,
+          "short_only": 0.23809523809523808,
+          "patristocrat": 0.3541666666666667,
+          "tight_budget": 0.40625,
+          "frankenstein": 0.6510416666666666
+        },
+        "rsi_index": 0.4514677318295739
+      }
+    ],
+    "Budget RSI": [
+      {
+        "seed": 0,
+        "program": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 1.0,
+          "vocab": 3000
+        },
+        "steering": 0.5625,
+        "runs_spent": 1920,
+        "heldout": 0.5208333333333334,
+        "benchmarks": {
+          "sherlock": 0.5,
+          "short_only": 0.14285714285714285,
+          "patristocrat": 0.13541666666666666,
+          "tight_budget": 0.22916666666666666,
+          "frankenstein": 0.5208333333333334
+        },
+        "rsi_index": 0.3038345864661654
+      },
+      {
+        "seed": 1,
+        "program": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.4791666666666667,
+        "runs_spent": 1920,
+        "heldout": 0.4375,
+        "benchmarks": {
+          "sherlock": 0.4791666666666667,
+          "short_only": 0.09523809523809523,
+          "patristocrat": 0.13541666666666666,
+          "tight_budget": 0.28125,
+          "frankenstein": 0.4375
+        },
+        "rsi_index": 0.2838941102756892
+      },
+      {
+        "seed": 2,
+        "program": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 250,
+          "restarts": 2,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 1000
+        },
+        "steering": 0.3541666666666667,
+        "runs_spent": 1920,
+        "heldout": 0.2708333333333333,
+        "benchmarks": {
+          "sherlock": 0.3125,
+          "short_only": 0.07142857142857142,
+          "patristocrat": 0.052083333333333336,
+          "tight_budget": 0.3125,
+          "frankenstein": 0.2708333333333333
+        },
+        "rsi_index": 0.2018734335839599
+      }
+    ],
+    "SO-RSI": [
+      {
+        "seed": 0,
+        "program": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 2000,
+          "restarts": 16,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 10000
+        },
+        "steering": 0.5208333333333334,
+        "runs_spent": 1920,
+        "heldout": 0.3489583333333333,
+        "benchmarks": {
+          "sherlock": 0.4375,
+          "short_only": 0.07142857142857142,
+          "patristocrat": 0.10416666666666667,
+          "tight_budget": 0.17708333333333334,
+          "frankenstein": 0.3489583333333333
+        },
+        "rsi_index": 0.22594141604010023
+      },
+      {
+        "seed": 1,
+        "program": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 2000,
+          "restarts": 16,
+          "temp0": 2.0,
+          "smoothing": 0.001,
+          "vocab": 10000
+        },
+        "steering": 0.5208333333333334,
+        "runs_spent": 1920,
+        "heldout": 0.4895833333333333,
+        "benchmarks": {
+          "sherlock": 0.5,
+          "short_only": 0.047619047619047616,
+          "patristocrat": 0.125,
+          "tight_budget": 0.23958333333333334,
+          "frankenstein": 0.4895833333333333
+        },
+        "rsi_index": 0.278515037593985
+      },
+      {
+        "seed": 2,
+        "program": {
+          "ngram": 3,
+          "word_weight": 4.0,
+          "init": "frequency",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 8000,
+          "restarts": 4,
+          "temp0": 8.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.625,
+        "runs_spent": 1920,
+        "heldout": 0.5885416666666666,
+        "benchmarks": {
+          "sherlock": 0.6041666666666666,
+          "short_only": 0.21428571428571427,
+          "patristocrat": 0.375,
+          "tight_budget": 0.4270833333333333,
+          "frankenstein": 0.5885416666666666
+        },
+        "rsi_index": 0.44049968671679196
+      }
+    ],
+    "SwarmRSI": [
+      {
+        "seed": 0,
+        "program": {
+          "ngram": 2,
+          "word_weight": 0.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.125,
+        "runs_spent": 1920,
+        "heldout": 0.09895833333333333,
+        "benchmarks": {
+          "sherlock": 0.09375,
+          "short_only": 0.0,
+          "patristocrat": 0.08333333333333333,
+          "tight_budget": 0.09375,
+          "frankenstein": 0.09895833333333333
+        },
+        "rsi_index": 0.07202850877192982
+      },
+      {
+        "seed": 1,
+        "program": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 1000
+        },
+        "steering": 0.625,
+        "runs_spent": 1920,
+        "heldout": 0.4427083333333333,
+        "benchmarks": {
+          "sherlock": 0.5625,
+          "short_only": 0.21428571428571427,
+          "patristocrat": 0.09375,
+          "tight_budget": 0.23958333333333334,
+          "frankenstein": 0.4427083333333333
+        },
+        "rsi_index": 0.3086575814536341
+      },
+      {
+        "seed": 2,
+        "program": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 2,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "steering": 0.3125,
+        "runs_spent": 1920,
+        "heldout": 0.3229166666666667,
+        "benchmarks": {
+          "sherlock": 0.28125,
+          "short_only": 0.047619047619047616,
+          "patristocrat": 0.041666666666666664,
+          "tight_budget": 0.2708333333333333,
+          "frankenstein": 0.3229166666666667
+        },
+        "rsi_index": 0.19083959899749373
+      }
+    ]
+  }
+}

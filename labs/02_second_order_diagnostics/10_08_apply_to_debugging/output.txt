@@ -1,0 +1,29 @@
+$ python3 labs/02_second_order_diagnostics/10_08_apply_to_debugging/lab.py
+==============================================================================
+Lab 10.08 · Apply SO-RSI to a debugging task
+Question: Is the function wrong, or is the test?
+==============================================================================
+  test: assert decrypt(encrypt('attack at dawn', ENC), ENC) == 'attack at dawn'
+
+--- First-order debugging: patch, run, repeat -------------------------------
+  #  change                                test  output          anomalies                              
+  -  ------------------------------------  ----  --------------  ---------------------------------------
+  1  use ord(c) - 96 (suspect off-by-one)  fail  kqqkyw kq lkvu  mismatch                               
+  2  back to ord(c) - 97                   fail  jmmjtq jm kjcy  opposing, mismatch                     
+  3  try ord(c) - 96 again, with lower()   fail  kqqkyw kq lkvu  recurrence, opposing, mismatch         
+  4  look the letter up with key.index(c)  PASS  attack at dawn  mismatch (test passes, contract breaks)
+
+--- Second-order inquiry: probe before the next patch -----------------------
+  probe 1 (contract on 200 random keys) for the ORIGINAL decrypt: 100% hold
+  probe 1 for attempt 4 (key.index, the 'passing' fix):           0% hold
+  probe 2 (what kind of key does the test pass?): decrypt(encrypt(x, ENC), ENC) is the identity only if ENC is its own inverse -> False
+  diagnosis: the function satisfies its contract; the test passes an ENCRYPTION key where the
+  contract asks for a DECRYPTION key. Attempt 4 'fixed' the test by breaking the contract.
+
+--- Systematic edit: fix the mechanism, not the symptom ---------------------
+  keep decrypt as written; pass invert(enc) in the test: test PASS ('attack at dawn'); contract holds 100%
+
+  inquiry memory entry:
+    finding : test oracle used enc where dec is required
+    evidence: contract probe 100% on original; 0 recurrences after the fix; attempt 4 broke the contract
+    status  : supported

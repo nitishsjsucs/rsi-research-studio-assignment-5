@@ -1,0 +1,46 @@
+$ python3 labs/00_reading_frontier_research/10_01_claim_vs_evidence/lab.py
+==============================================================================
+Lab 10.01 · Distinguish claim from evidence
+Question: Does the best score after selection survive re-measurement?
+==============================================================================
+
+--- Part A: claim cards -----------------------------------------------------
+  Budget RSI: scoring code edits before they run (arXiv:2610.29121): 3 claims
+  SO-RSI: second-order problem solving for RSI (arXiv:2610.05701): 3 claims
+  SwarmRSI: evolving scientific agent swarms (arXiv:2610.20431): 2 claims
+  wrote labs/00_reading_frontier_research/10_01_claim_vs_evidence/claim_evidence_analysis.md
+
+--- Part B: the winner's curse on 16 candidate edits ------------------------
+  parent: 3-gram words×2 freq hill 4x2000  steering(seed 0) = 0.312
+  edit            steering  gain  
+  --------------  --------  ------
+  iters_up        0.479     +0.167
+  add_polish      0.458     +0.146
+  restarts_up     0.438     +0.125
+  vocab_down      0.354     +0.042
+  words_down      0.354     +0.042
+  ngram_down      0.333     +0.021
+  smoothing_up    0.312     +0.000
+  words_up        0.312     +0.000
+  ngram_up        0.292     -0.021
+  smoothing_down  0.292     -0.021
+  init_random     0.292     -0.021
+  vocab_up        0.271     -0.042
+  restarts_down   0.208     -0.104
+  remove_words    0.188     -0.125
+  iters_down      0.167     -0.146
+  swap_ranked     0.042     -0.271
+
+--- Headline vs evidence ----------------------------------------------------
+  measurement                        parent  winner (iters_up)  gain  
+  ---------------------------------  ------  -----------------  ------
+  steering, seed 0 (used to SELECT)  0.312   0.479              +0.167
+  steering, fresh seeds 1-2          0.365   0.375              +0.010
+  unseen probe ciphers, seeds 0-1    0.312   0.312              +0.000
+
+  6/16 edits 'beat' the parent on the selection split.
+  The headline gain +0.167 shrinks by +0.156 on fresh seeds of the SAME ciphers.
+  Claim: 'edit X improves the solver by the headline amount'.
+  Evidence: only the re-measured gains, with their spread, support a claim.
+
+done in 40s

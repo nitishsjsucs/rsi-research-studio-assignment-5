@@ -1,0 +1,50 @@
+$ python3 labs/01_budget_rsi_scoring/10_05_extend_readout/lab.py
+==============================================================================
+Lab 10.05 · Extend the readout
+Question: Do signed coordinates fix the blind spot, and does the readout transfer to compound edits?
+==============================================================================
+
+--- A1. Readout+ coefficients on the signed coordinates ---------------------
+  signed coordinate        coefficient
+  -----------------------  -----------
+  dlog2_ngram_order        +0.0066    
+  dlog2_iterations         +0.0031    
+  dlog2_restarts           +0.0110    
+  dlog2_word_weight        -0.0038    
+  dlog2_start_temperature  -0.0055    
+  dlog2_smoothing          +0.0001    
+  dlog2_vocab              +0.0010    
+
+--- A2. Tree search with each readout (1920 runs per arm, 3 seeds) ----------
+  seed 0 paper readout  best steering=0.562  2-gram words×1 freq hill polish k=1 8x2000
+  seed 0 readout+       best steering=0.521  3-gram words×1 freq hill polish 8x2000
+  seed 0 parent_rate    best steering=0.375  3-gram words×2 rand anneal T2 polish k=0.1 2x2000
+  seed 1 paper readout  best steering=0.479  2-gram words×2 freq hill polish 8x2000
+  seed 1 readout+       best steering=0.521  2-gram words×1 freq hill polish k=0.1 vocab=10000 32x2000
+  seed 1 parent_rate    best steering=0.271  3-gram words×2 freq anneal T2 k=0.001 vocab=1000 1x4000
+  seed 2 paper readout  best steering=0.354  2-gram words×2 freq hill polish k=0.1 vocab=1000 2x250
+  seed 2 readout+       best steering=0.521  2-gram words×1 rand hill polish 16x1000
+  seed 2 parent_rate    best steering=0.208  3-gram rand hill k=0.1 2x4000
+  selector       steering best  held-out     
+  -------------  -------------  -------------
+  paper readout  0.465 ± 0.105  0.410 ± 0.127
+  readout+       0.521 ± 0.000  0.453 ± 0.009
+  parent_rate    0.285 ± 0.084  0.215 ± 0.081
+
+--- B. Transfer to 24 compound (two-operator) edits -------------------------
+  paper readout  corr(pred gain, gain) = +0.241;  mean gain of its top quarter = -0.0153 vs all = -0.0012
+  readout+       corr(pred gain, gain) = +0.296;  mean gain of its top quarter = -0.0084 vs all = -0.0012
+  best compound edit in the sample: init_frequency+iters_down (+0.1021)
+
+--- C. Training distribution: parents from shallow walks (<= 5 edits) vs deep (<= 8) 
+  coefficient on defs_added: deep-walk readout -0.0093, shallow-walk readout -0.0229
+  seed 0 shallow-trained readout best steering=0.188 held-out=0.151  2-gram freq anneal T2 polish k=0.001 1x4000
+  seed 1 shallow-trained readout best steering=0.104 held-out=0.052  2-gram rand anneal T4 polish 1x1000
+  seed 2 shallow-trained readout best steering=0.146 held-out=0.094  2-gram freq anneal T4 polish k=0.1 1x2000
+  selector                    held-out     
+  --------------------------  -------------
+  paper readout               0.410 ± 0.127
+  readout (shallow training)  0.099 ± 0.050
+  parent_rate                 0.215 ± 0.081
+
+done in 350s

@@ -1,0 +1,45 @@
+$ python3 labs/01_budget_rsi_scoring/10_03_run_budget_rsi/lab.py
+==============================================================================
+Lab 10.03 · Run Budget RSI
+Question: Does scoring edits before running them buy better programs per evaluation?
+==============================================================================
+
+--- 1. Training data for the readout (96 scaffold edits) --------------------
+  96 labelled edits, 9536 fit-split instance-runs (one-time cost)
+  label = child mean letter accuracy on fit x 4 seeds: mean 0.213, range 0.045-0.407; solve-rate labels > 0 for only 38%
+  readout fit on 9 features: parent_score, lines_added, lines_deleted, hunks, defs_added, defs_removed, imports_changed, constants_changed, control_flow_changed
+
+--- 2. Tree search at 1920 steering runs per arm (3 seeds) ------------------
+  seed 0 readout      expansions=39 best steering=0.562  2-gram words×1 freq hill polish k=1 8x2000
+  seed 0 parent_rate  expansions=39 best steering=0.375  3-gram words×2 rand anneal T2 polish k=0.1 2x2000
+  seed 0 oracle       expansions= 6 best steering=0.354  2-gram words×2 rand hill polish 4x1000
+  seed 1 readout      expansions=39 best steering=0.479  2-gram words×2 freq hill polish 8x2000
+  seed 1 parent_rate  expansions=39 best steering=0.271  3-gram words×2 freq anneal T2 k=0.001 vocab=1000 1x4000
+  seed 1 oracle       expansions= 6 best steering=0.312  3-gram words×2 freq hill polish 2x1000
+  seed 2 readout      expansions=39 best steering=0.354  2-gram words×2 freq hill polish k=0.1 vocab=1000 2x250
+  seed 2 parent_rate  expansions=39 best steering=0.208  3-gram rand hill k=0.1 2x4000
+  seed 2 oracle       expansions= 6 best steering=0.146  2-gram words×2 rand anneal T2 2x2000
+
+  one expansion, shown in full (readout arm, seed 0, first 8):
+    parent #0  (0.000)  --    add_polish-->  0.083
+    parent #1  (0.083)  --  smoothing_up-->  0.062
+    parent #1  (0.083)  --    iters_down-->  0.042
+    parent #2  (0.062)  --init_frequency-->  0.062
+    parent #1  (0.083)  --init_frequency-->  0.042
+    parent #4  (0.062)  --  smoothing_up-->  0.042
+    parent #1  (0.083)  --  smoothing_up-->  0.062
+    parent #6  (0.042)  --   restarts_up-->  0.042
+
+--- 3. Held-out report (unsealed once, here) --------------------------------
+  selector     expansions  steering best  held-out       runs
+  -----------  ----------  -------------  -------------  ----
+  readout      39          0.465 ± 0.105  0.410 ± 0.127  1920
+  parent_rate  39          0.285 ± 0.084  0.215 ± 0.081  1920
+  oracle       6           0.271 ± 0.110  0.247 ± 0.077  1776
+
+--- 4. Cost of an expansion -------------------------------------------------
+  evaluate all 6 proposals: 288 runs per expansion
+  readout: rank 6 in microseconds, evaluate 1: 48 runs per expansion (83% less)
+  one-time readout training: 9536 fit runs, amortised over every expansion of every run
+
+done in 203s

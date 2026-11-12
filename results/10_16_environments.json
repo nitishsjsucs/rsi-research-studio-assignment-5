@@ -1,0 +1,79 @@
+{
+  "rows": [
+    [
+      "EaaS",
+      1152,
+      16.54134202003479,
+      0.40625,
+      0.375,
+      "4-gram rand anneal T4 polish 8x4000"
+    ],
+    [
+      "terminal",
+      1152,
+      33.396090269088745,
+      0.40625,
+      0.375,
+      "4-gram rand anneal T4 polish 8x4000"
+    ],
+    [
+      "self-play",
+      1164,
+      12.526778221130371,
+      0.2916666666666667,
+      0.296875,
+      "4-gram freq hill ranked polish 8x2000"
+    ]
+  ],
+  "self_play_tasks": [
+    [
+      "long",
+      0.0
+    ],
+    [
+      "long",
+      0.243
+    ],
+    [
+      "long",
+      0.222
+    ],
+    [
+      "medium",
+      0.0
+    ],
+    [
+      "medium",
+      0.139
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ],
+    [
+      "medium",
+      0.188
+    ]
+  ],
+  "terminal_overhead_s": 0.2711332083473816
+}

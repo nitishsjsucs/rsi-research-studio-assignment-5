@@ -1,0 +1,87 @@
+$ python3 labs/03_scaling_coordination/10_11_swarm_rsi/lab.py
+==============================================================================
+Lab 10.11 · Swarm evolution
+Question: What do mutation, recombination and shared experience each contribute?
+==============================================================================
+
+--- seed 0 · full swarm, every agent's move ---------------------------------
+  g1 objective  smoothing_up    -> 0.000 KEEP
+  g1 search     iters_down      -> 0.000 drop
+  g1 diversify  iters_down      -> 0.000 drop
+  g1 efficiency iters_down      -> 0.000 drop
+  g1 explorer   smoothing_up    -> 0.000 KEEP
+  g2 objective  smoothing_down  -> 0.000 drop
+  g2 search     use_anneal      -> 0.000 drop
+  g2 diversify  use_anneal      -> 0.000 drop
+  g2 efficiency init_frequency  -> 0.000 KEEP
+  g2 explorer   smoothing_up    -> 0.000 drop
+  g3 objective  smoothing_up    -> 0.000 drop
+  g3 search     iters_up        -> 0.021 KEEP
+  g3 diversify  init_frequency  -> 0.000 KEEP
+  g3 efficiency iters_down      -> 0.000 drop
+  g3 explorer   swap_ranked     -> 0.000 drop
+  g3 recombine search+diversify -> 0.021 NEW LEADER
+  g4 objective  ngram_down      -> 0.000 drop
+  g4 search     use_anneal      -> 0.125 KEEP
+  g4 diversify  use_anneal      -> 0.021 drop
+  g4 efficiency add_polish      -> 0.021 KEEP
+  g4 explorer   use_anneal      -> 0.021 drop
+  g4 recombine search+efficiency -> 0.125 NEW LEADER
+  g5 objective  ngram_up        -> 0.104 drop
+  g5 search     iters_up        -> 0.104 drop
+  g5 diversify  init_frequency  -> 0.042 drop
+  g5 efficiency init_frequency  -> 0.042 drop
+  g5 explorer   init_frequency  -> 0.042 drop
+  g6 objective  smoothing_up    -> 0.083 drop
+  g6 search     add_polish      -> 0.125 KEEP
+  g6 diversify  init_frequency  -> 0.042 drop
+  g6 efficiency init_frequency  -> 0.042 drop
+  g6 explorer   remove_polish   -> 0.125 drop
+  g7 objective  smoothing_up    -> 0.083 drop
+  g7 search     iters_down      -> 0.042 drop
+  g7 diversify  iters_down      -> 0.042 drop
+  g7 efficiency init_frequency  -> 0.042 drop
+  g7 explorer   temp_up         -> 0.104 drop
+  g8 objective  ngram_down      -> 0.000 drop
+  g8 search     use_hill        -> 0.062 drop
+  seed 0 swarm (full)           best=0.125 by objective  gens=8  2-gram rand anneal T2 polish 1x2000
+  seed 0 no recombination       best=0.125 by search     gens=8  2-gram rand anneal T2 polish 1x2000
+  seed 0 no shared experience   best=0.188 by objective  gens=8  3-gram freq hill ranked polish 1x1000
+  seed 0 no migration           best=0.208 by objective  gens=8  3-gram words×2 freq hill k=0.1 1x2000
+  seed 1 swarm (full)           best=0.625 by objective  gens=7  2-gram words×2 rand anneal T2 polish k=0.1 vocab=1000 8x2000
+  seed 1 no recombination       best=0.542 by objective  gens=8  2-gram words×2 rand hill polish vocab=1000 16x1000
+  seed 1 no shared experience   best=0.542 by objective  gens=7  2-gram words×2 rand hill polish k=0.1 vocab=1000 8x2000
+  seed 1 no migration           best=0.521 by search     gens=7  3-gram words×2 rand hill polish k=0.1 16x1000
+  seed 2 swarm (full)           best=0.312 by objective  gens=8  2-gram words×1 freq hill polish 2x2000
+  seed 2 no recombination       best=0.312 by objective  gens=8  2-gram words×1 freq hill polish 2x2000
+  seed 2 no shared experience   best=0.375 by objective  gens=8  2-gram words×2 freq anneal T2 ranked polish vocab=1000 1x1000
+  seed 2 no migration           best=0.250 by objective  gens=8  2-gram words×1 rand hill polish k=0.1 vocab=1000 1x2000
+
+--- Agents after seed 0 -----------------------------------------------------
+  objective  0.125  top proposal weights [('add_words', 1.0), ('words_up', 1.0), ('words_down', 1.0)]
+             hypothesis: failures come from the scoring function: better language statistics will fix them [supported: smoothing_up +0.01]
+  search     0.125  top proposal weights [('add_polish', 1.6), ('use_anneal', 1.28), ('iters_up', 1.28)]
+             hypothesis: failures come from the climb: a smarter acceptance rule will escape local optima [supported: add_polish +0.02]
+  diversify  0.125  top proposal weights [('init_frequency', 1.02), ('restarts_up', 1.0), ('restarts_down', 1.0)]
+             hypothesis: failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.06]
+  efficiency 0.125  top proposal weights [('add_polish', 1.6), ('swap_ranked', 1.0), ('swap_uniform', 1.0)]
+             hypothesis: failures are wasted budget: better moves per evaluation will fix them [supported: add_polish +0.02]
+  explorer   0.125  top proposal weights [('smoothing_up', 1.28), ('ngram_up', 1.0), ('ngram_down', 1.0)]
+             hypothesis: nobody knows yet: sample every kind of edit [supported: smoothing_up +0.01]
+
+--- Ablations at equal compute ----------------------------------------------
+  variant               steering       held-out       sequential rounds  mean diversity
+  --------------------  -------------  -------------  -----------------  --------------
+  swarm (full)          0.354 ± 0.253  0.288 ± 0.174  7.7                0.06          
+  no recombination      0.326 ± 0.209  0.285 ± 0.170  8.0                0.07          
+  no shared experience  0.368 ± 0.177  0.259 ± 0.147  7.7                0.05          
+  no migration          0.326 ± 0.170  0.293 ± 0.189  7.7                0.20          
+
+--- What a swarm buys: equal compute vs equal sequential rounds -------------
+  arm                          runs  sequential rounds  held-out
+  ---------------------------  ----  -----------------  --------
+  swarm (full)                 1920  8                  0.288   
+  single agent, equal compute  1920  40                 0.554   
+  single agent, equal rounds   ~416  8                  0.212   
+
+done in 292s

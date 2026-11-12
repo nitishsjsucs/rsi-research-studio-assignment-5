@@ -1,0 +1,136 @@
+{
+  "initial": {
+    "sherlock": 0.0,
+    "short_only": 0.0,
+    "patristocrat": 0.010416666666666666,
+    "tight_budget": 0.0,
+    "frankenstein": 0.0
+  },
+  "tracks": {
+    "data": {
+      "final": {
+        "sherlock": 0.010416666666666666,
+        "short_only": 0.0,
+        "patristocrat": 0.010416666666666666,
+        "tight_budget": 0.010416666666666666,
+        "frankenstein": 0.010416666666666666
+      },
+      "rsi_index": [
+        0.00625,
+        0.00625
+      ]
+    },
+    "harness": {
+      "final": {
+        "sherlock": 0.21875,
+        "short_only": 0.0,
+        "patristocrat": 0.13541666666666669,
+        "tight_budget": 0.08854166666666667,
+        "frankenstein": 0.2265625
+      },
+      "rsi_index": [
+        0.12107456140350878,
+        0.14299342105263158
+      ]
+    },
+    "joint": {
+      "final": {
+        "sherlock": 0.3854166666666667,
+        "short_only": 0.047619047619047616,
+        "patristocrat": 0.265625,
+        "tight_budget": 0.265625,
+        "frankenstein": 0.3515625
+      },
+      "rsi_index": [
+        0.23340852130325818,
+        0.28983865914786966
+      ]
+    }
+  },
+  "finals": {
+    "data": [
+      {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 1000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 1000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      }
+    ],
+    "harness": [
+      {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 4000,
+        "restarts": 4,
+        "temp0": 4.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 4000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      }
+    ],
+    "joint": [
+      {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 4000,
+        "restarts": 8,
+        "temp0": 4.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      }
+    ]
+  }
+}

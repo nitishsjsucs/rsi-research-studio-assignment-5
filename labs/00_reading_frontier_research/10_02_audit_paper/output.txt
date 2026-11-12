@@ -1,0 +1,35 @@
+$ python3 labs/00_reading_frontier_research/10_02_audit_paper/lab.py
+==============================================================================
+Lab 10.02 · Audit an October 2026 paper
+Question: What did the experiment actually measure, and can a ledger prove it?
+==============================================================================
+
+--- Part A: audit templates -------------------------------------------------
+  wrote labs/00_reading_frontier_research/10_02_audit_paper/paper_audit_budget_rsi.md
+  wrote labs/00_reading_frontier_research/10_02_audit_paper/paper_audit_so_rsi.md
+  wrote labs/00_reading_frontier_research/10_02_audit_paper/paper_audit_swarm_rsi.md
+  budget_rsi: untested -> diff shape predicts edit quality on other tasks
+  so_rsi: untested -> probes generalise across formal systems
+  swarm_rsi: untested -> swarm beats one agent at equal compute
+
+--- Part B1: the flawed comparison ------------------------------------------
+    blocked: 10.02-PEEK asked for the sealed 'heldout' split
+  [FAIL] sealed held-out  1 held-out access(es) before the final report
+  [FAIL] matched budgets  greedy: 576-576 runs, random: 1152-1152 runs
+  [FAIL] enough seeds     greedy: 1, random: 1
+  [PASS] gap reported     steering and held-out recorded for every run
+  verdict: claim NOT supported by this evidence
+
+--- Part B2: the clean comparison -------------------------------------------
+  [PASS] sealed held-out  held-out touched only in the final report
+  [PASS] matched budgets  greedy: 576-576 runs, random: 576-576 runs
+  [PASS] enough seeds     greedy: 3, random: 3
+  [PASS] gap reported     steering and held-out recorded for every run
+  arm     seeds  steering       held-out     
+  ------  -----  -------------  -------------
+  greedy  3      0.312 ± 0.091  0.330 ± 0.109
+  random  3      0.153 ± 0.064  0.115 ± 0.068
+  verdict: claim may be stated, with these numbers
+  ledger: heldout: 576 runs, steering: 3168 runs
+
+done in 48s

@@ -1,0 +1,56 @@
+$ python3 labs/03_scaling_coordination/10_09_compare_scaling/lab.py
+==============================================================================
+Lab 10.09 · Compare scaling approaches
+Question: How do a leader-led team and a peer swarm spend the same budget?
+==============================================================================
+
+--- AReaL-RSI, conditional memory (1152 runs) -------------------------------
+  campaign 1: ['objective', 'search'] -> best R2/search 0.000->0.083 [resolved] team=0.083
+  campaign 2: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 3: ['efficiency', 'search'] -> best R1/efficiency 0.083->0.083 [unresolved] team=0.083
+  campaign 4: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  -> 0.083 after 4 campaigns; resolved=1 unresolved=3
+
+--- SwarmRSI (1152 runs) ----------------------------------------------------
+  g1 objective  smoothing_up    -> 0.000 KEEP
+  g1 search     iters_down      -> 0.000 drop
+  g1 diversify  iters_down      -> 0.000 drop
+  g1 efficiency iters_down      -> 0.000 drop
+  g1 explorer   smoothing_up    -> 0.000 KEEP
+  g2 objective  smoothing_down  -> 0.000 drop
+  g2 search     use_anneal      -> 0.000 drop
+  g2 diversify  use_anneal      -> 0.000 drop
+  g2 efficiency init_frequency  -> 0.000 KEEP
+  g2 explorer   smoothing_up    -> 0.000 drop
+  g3 objective  smoothing_up    -> 0.000 drop
+  g3 search     iters_up        -> 0.021 KEEP
+  g3 diversify  init_frequency  -> 0.000 KEEP
+  g3 efficiency iters_down      -> 0.000 drop
+  g3 explorer   swap_ranked     -> 0.000 drop
+  g3 recombine search+diversify -> 0.021 NEW LEADER
+  g4 objective  ngram_down      -> 0.000 drop
+  g4 search     use_anneal      -> 0.125 KEEP
+  g4 diversify  use_anneal      -> 0.021 drop
+  g4 efficiency add_polish      -> 0.021 KEEP
+  g4 explorer   use_anneal      -> 0.021 drop
+  g4 recombine search+efficiency -> 0.125 NEW LEADER
+  g5 objective  ngram_up        -> 0.104 drop
+  -> 0.125 after 5 generations, leader=objective
+
+--- Communication pattern observed ------------------------------------------
+  AReaL : leader -> {R1, R2} assignments; R* -> leader findings; leader -> replicate -> memory -> team program
+  Swarm : every agent -> shared experience; improved agents -> recombination; leader -> laggards (migration)
+
+--- Comparison --------------------------------------------------------------
+  aspect          AReaL-RSI (leader-follower)                                               SwarmRSI (peer swarm)                                           
+  --------------  ------------------------------------------------------------------------  ----------------------------------------------------------------
+  Coordination    leader assigns orientations to specialist researchers                     peers; no one assigns work                                      
+  Memory          conditional: replicated findings are shared, the rest stay open problems  shared experience table: every result, weighted by recency      
+  Evolution       evidence-based review revises orientation values and retires skills       mutation + recombination + re-weighted proposal distributions   
+  Selection       leader-guided (UCB over resolved evidence)                                competitive (laggards migrate to the leader)                    
+  Pays extra for  replication runs (a second seed) before sharing                           breadth: five evaluations per generation                        
+  Advantage       noise-robust: an unreplicated gain never becomes team fact                parallel depth: many directions per sequential round            
+  Limitation      replication costs 2 of every 8 evaluations (a quarter fewer edits)        at a fixed compute budget, fewer sequential steps than one agent
+  Choose it when  evaluations are noisy and a wrong 'fact' is expensive                     wall-clock rounds are the bottleneck, compute is not            
+
+done in 7s

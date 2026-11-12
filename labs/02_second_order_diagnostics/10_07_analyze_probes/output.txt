@@ -1,0 +1,48 @@
+$ python3 labs/02_second_order_diagnostics/10_07_analyze_probes/lab.py
+==============================================================================
+Lab 10.07 · Analyse diagnostic probes
+Question: When does each anomaly fire, and do the probes recommend the edit that actually helps?
+==============================================================================
+
+--- 1. Anomalies in the 10.06 traces ----------------------------------------
+  anomaly     naive  so-rsi  typical recommendation         why it helps                                                             
+  ----------  -----  ------  -----------------------------  -------------------------------------------------------------------------
+  recurrence  23     15      init_frequency, restarts_down  the edit's assumption is wrong for this program; stop paying for it      
+  opposing    21     17      init_frequency, restarts_down  two edits fight over one knob; the knob is not the bottleneck            
+  mismatch    43     20      ngram_up, add_words            the model of the system is wrong (e.g. the cap truncates 'search longer')
+
+  mechanisms diagnosed across SO-RSI runs: short_texts=15, cap_bound=9, objective=6, undersearched=4, local_optima=4, high_variance=3
+
+--- 2. The objective-gap probe on one cipher --------------------------------
+  program: 2-gram rand hill 1x1000
+  cipher : yabgf kpn xap snf arh fkjg pgvkpjgm fogpyauj oayvgf naffshw kfsmg nog kmbgpnsfgvghn foggn 
+  found  : moves art bor its own sace relarced shermofc homles tossing aside the advertiselent sheet 
+  truth  : loves art for its own sake remarked sherlock holmes tossing aside the advertisement sheet 
+  fitness(found) = -414.8  >=  fitness(truth) = -416.9
+  The program's own objective prefers the wrong answer. Searching harder converges on it faster.
+
+--- 3. Do the recommendations win? (probe, then test both edits on steering) 
+  2-gram rand hill 1x1000
+    probe: fail=48/48 obj_gap=0.33 stalled=0.04 under=0.73 cap=0.00 var=0.00 [short=0.00 medium=0.00 long=0.00]
+    mechanisms: ['undersearched']
+      - 73% of failures were still improving when the program stopped itself
+  4-gram words×2 rand hill 2x1000
+    probe: fail=44/48 obj_gap=0.00 stalled=0.50 under=0.43 cap=0.00 var=0.08 [short=0.00 medium=0.00 long=0.33]
+    mechanisms: ['local_optima', 'undersearched']
+      - 50% of failures stopped improving in the first half of their budget
+      - 43% of failures were still improving when the program stopped itself
+  3-gram words×2 freq hill 2x10000
+    probe: fail=36/48 obj_gap=0.00 stalled=0.61 under=0.00 cap=0.00 var=0.08 [short=0.00 medium=0.17 long=0.83]
+    mechanisms: ['local_optima', 'short_texts']
+      - 61% of failures stopped improving in the first half of their budget
+      - short ciphers solve 0% vs long 83%
+  program                           diagnosis                   base   recommended  after  futile         after
+  --------------------------------  --------------------------  -----  -----------  -----  -------------  -----
+  2-gram rand hill 1x1000           undersearched               0.000  iters_up     0.021  iters_down     0.000
+  4-gram words×2 rand hill 2x1000   local_optima,undersearched  0.062  use_anneal   0.042  restarts_down  0.021
+  3-gram words×2 freq hill 2x10000  local_optima,short_texts    0.333  use_anneal   0.500  iters_up       0.250
+
+  recommended edit beat the 'futile' edit in 3/3 cases.
+  Remedy table the probes draw from: objective->['ngram_up', 'add_words']; local_optima->['use_anneal', 'restarts_up']; undersearched->['iters_up', 'restarts_up']; cap_bound->['init_frequency', 'restarts_down']; short_texts->['add_words', 'words_up']; high_variance->['restarts_up', 'use_anneal']
+
+done in 45s

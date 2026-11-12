@@ -1,0 +1,29 @@
+[
+  [
+    "2-gram rand hill 1x1000",
+    "undersearched",
+    0.0,
+    "iters_up",
+    0.020833333333333332,
+    "iters_down",
+    0.0
+  ],
+  [
+    "4-gram words\u00d72 rand hill 2x1000",
+    "local_optima,undersearched",
+    0.0625,
+    "use_anneal",
+    0.041666666666666664,
+    "restarts_down",
+    0.020833333333333332
+  ],
+  [
+    "3-gram words\u00d72 freq hill 2x10000",
+    "local_optima,short_texts",
+    0.3333333333333333,
+    "use_anneal",
+    0.5,
+    "iters_up",
+    0.25
+  ]
+]

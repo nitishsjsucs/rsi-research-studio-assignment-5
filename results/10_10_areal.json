@@ -1,0 +1,975 @@
+{
+  "conditional": [
+    {
+      "mode": "conditional",
+      "seed": 0,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 1000
+      },
+      "final_rate": 0.1875,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.1875,
+        0.1875,
+        0.1875
+      ],
+      "resolved": 3,
+      "unresolved": 4,
+      "values": {
+        "objective": 0.026041666666666668,
+        "search": 0.016666666666666666,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [
+          "smoothing_down"
+        ],
+        "search": [
+          "iters_down",
+          "iters_up",
+          "remove_polish",
+          "use_anneal"
+        ],
+        "diversify": [
+          "init_frequency",
+          "use_anneal"
+        ],
+        "efficiency": [
+          "init_frequency",
+          "iters_down"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "search",
+          "ops": [
+            "add_polish(+)",
+            "use_anneal",
+            "use_anneal"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "use_anneal",
+            "iters_up",
+            "iters_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R1",
+          "orientation": "efficiency",
+          "ops": [
+            "iters_down",
+            "remove_polish",
+            "remove_polish"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "remove_polish",
+            "iters_up",
+            "iters_up"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_down",
+            "ngram_up",
+            "add_words(+)"
+          ],
+          "gain": 0.10416666666666667,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "words_up",
+            "smoothing_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 7,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "words_up",
+            "vocab_down(+)"
+          ],
+          "gain": 0.0,
+          "status": "resolved"
+        }
+      ],
+      "heldout": 0.09895833333333333
+    },
+    {
+      "mode": "conditional",
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 1.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.375,
+      "campaigns": 6,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.1875,
+        0.2708333333333333,
+        0.2708333333333333,
+        0.2708333333333333,
+        0.375
+      ],
+      "resolved": 5,
+      "unresolved": 1,
+      "values": {
+        "objective": 0.05208333333333334,
+        "search": 0.0,
+        "diversify": 0.02083333333333333,
+        "efficiency": 0.027777777777777776
+      },
+      "skills_retired": {
+        "objective": [
+          "ngram_down"
+        ],
+        "search": [],
+        "diversify": [
+          "iters_down",
+          "restarts_down",
+          "use_anneal"
+        ],
+        "efficiency": [
+          "swap_ranked"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "efficiency",
+          "ops": [
+            "add_polish(+)",
+            "remove_polish",
+            "swap_ranked"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "add_words(+)",
+            "vocab_up"
+          ],
+          "gain": 0.10416666666666667,
+          "status": "resolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R2",
+          "orientation": "diversify",
+          "ops": [
+            "restarts_up(+)",
+            "iters_down",
+            "use_anneal"
+          ],
+          "gain": 0.08333333333333331,
+          "status": "resolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "vocab_down(+)",
+            "ngram_down"
+          ],
+          "gain": 0.10416666666666669,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R2",
+          "orientation": "efficiency",
+          "ops": [
+            "init_frequency(+)",
+            "restarts_down",
+            "restarts_down"
+          ],
+          "gain": 0.0,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "words_down(+)",
+            "ngram_up",
+            "smoothing_up"
+          ],
+          "gain": 0.10416666666666669,
+          "status": "resolved"
+        }
+      ],
+      "heldout": 0.3125
+    },
+    {
+      "mode": "conditional",
+      "seed": 2,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 1000
+      },
+      "final_rate": 0.375,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.2708333333333333,
+        0.2708333333333333,
+        0.375
+      ],
+      "resolved": 4,
+      "unresolved": 3,
+      "values": {
+        "objective": 0.07291666666666667,
+        "search": 0.016666666666666666,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [
+          "ngram_down"
+        ],
+        "search": [
+          "iters_down",
+          "iters_up",
+          "remove_polish",
+          "use_anneal"
+        ],
+        "diversify": [
+          "use_anneal"
+        ],
+        "efficiency": [
+          "init_frequency",
+          "remove_polish"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "search",
+          "ops": [
+            "use_anneal",
+            "add_polish(+)",
+            "iters_up"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "iters_down",
+            "iters_up",
+            "use_anneal"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "ngram_down",
+            "ngram_up"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R2",
+          "orientation": "diversify",
+          "ops": [
+            "restarts_up(+)",
+            "restarts_down",
+            "use_anneal"
+          ],
+          "gain": 0.0,
+          "status": "resolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_down",
+            "add_words(+)",
+            "smoothing_down"
+          ],
+          "gain": 0.1875,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "words_down",
+            "words_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 7,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "vocab_down(+)",
+            "smoothing_up"
+          ],
+          "gain": 0.10416666666666669,
+          "status": "resolved"
+        }
+      ],
+      "heldout": 0.203125
+    }
+  ],
+  "share_all": [
+    {
+      "mode": "share_all",
+      "seed": 0,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 1,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.1875,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.1875,
+        0.1875,
+        0.1875
+      ],
+      "resolved": 2,
+      "unresolved": 5,
+      "values": {
+        "objective": 0.026041666666666668,
+        "search": 0.016666666666666666,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [
+          "smoothing_down"
+        ],
+        "search": [
+          "iters_down",
+          "remove_polish",
+          "use_anneal"
+        ],
+        "diversify": [
+          "init_frequency",
+          "use_anneal"
+        ],
+        "efficiency": [
+          "init_frequency",
+          "iters_down"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "search",
+          "ops": [
+            "add_polish(+)",
+            "use_anneal",
+            "use_anneal"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "use_anneal",
+            "iters_up",
+            "iters_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R1",
+          "orientation": "efficiency",
+          "ops": [
+            "iters_down",
+            "remove_polish",
+            "remove_polish"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "remove_polish",
+            "iters_down",
+            "iters_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_down",
+            "ngram_up",
+            "add_words(+)"
+          ],
+          "gain": 0.10416666666666667,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "words_up",
+            "smoothing_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 7,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "words_up",
+            "ngram_down",
+            "smoothing_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        }
+      ],
+      "heldout": 0.11458333333333333
+    },
+    {
+      "mode": "share_all",
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 4,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 1000
+      },
+      "final_rate": 0.4375,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.1875,
+        0.2708333333333333,
+        0.375,
+        0.4375,
+        0.4375,
+        0.4375
+      ],
+      "resolved": 5,
+      "unresolved": 2,
+      "values": {
+        "objective": 0.04166666666666667,
+        "search": 0.0,
+        "diversify": 0.029166666666666664,
+        "efficiency": 0.027777777777777776
+      },
+      "skills_retired": {
+        "objective": [
+          "ngram_down",
+          "smoothing_up"
+        ],
+        "search": [],
+        "diversify": [
+          "iters_down",
+          "use_anneal"
+        ],
+        "efficiency": [
+          "iters_down",
+          "swap_ranked"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "efficiency",
+          "ops": [
+            "add_polish(+)",
+            "remove_polish",
+            "swap_ranked"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "add_words(+)",
+            "vocab_up"
+          ],
+          "gain": 0.10416666666666667,
+          "status": "resolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R2",
+          "orientation": "diversify",
+          "ops": [
+            "restarts_up(+)",
+            "iters_down",
+            "use_anneal"
+          ],
+          "gain": 0.08333333333333331,
+          "status": "resolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "vocab_down(+)",
+            "ngram_down"
+          ],
+          "gain": 0.10416666666666669,
+          "status": "resolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R2",
+          "orientation": "diversify",
+          "ops": [
+            "use_anneal",
+            "restarts_up(+)",
+            "use_anneal"
+          ],
+          "gain": 0.0625,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "efficiency",
+          "ops": [
+            "restarts_down",
+            "iters_down",
+            "remove_polish"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 7,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_up",
+            "words_down",
+            "vocab_up"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        }
+      ],
+      "heldout": 0.265625
+    },
+    {
+      "mode": "share_all",
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.2916666666666667,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.2708333333333333,
+        0.2708333333333333,
+        0.2916666666666667
+      ],
+      "resolved": 4,
+      "unresolved": 3,
+      "values": {
+        "objective": 0.05208333333333334,
+        "search": 0.016666666666666666,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [
+          "ngram_down"
+        ],
+        "search": [
+          "iters_down",
+          "iters_up",
+          "remove_polish",
+          "use_anneal"
+        ],
+        "diversify": [
+          "use_anneal"
+        ],
+        "efficiency": [
+          "init_frequency",
+          "remove_polish"
+        ]
+      },
+      "memory": [
+        {
+          "campaign": 1,
+          "researcher": "R2",
+          "orientation": "search",
+          "ops": [
+            "use_anneal",
+            "add_polish(+)",
+            "iters_up"
+          ],
+          "gain": 0.08333333333333333,
+          "status": "resolved"
+        },
+        {
+          "campaign": 2,
+          "researcher": "R1",
+          "orientation": "search",
+          "ops": [
+            "iters_down",
+            "iters_up",
+            "use_anneal"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 3,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "ngram_down",
+            "ngram_up"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 4,
+          "researcher": "R2",
+          "orientation": "diversify",
+          "ops": [
+            "restarts_up(+)",
+            "restarts_down",
+            "use_anneal"
+          ],
+          "gain": 0.0,
+          "status": "resolved"
+        },
+        {
+          "campaign": 5,
+          "researcher": "R2",
+          "orientation": "objective",
+          "ops": [
+            "smoothing_down",
+            "add_words(+)",
+            "smoothing_down"
+          ],
+          "gain": 0.1875,
+          "status": "resolved"
+        },
+        {
+          "campaign": 6,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "ngram_down",
+            "words_down",
+            "words_down"
+          ],
+          "gain": 0.0,
+          "status": "unresolved"
+        },
+        {
+          "campaign": 7,
+          "researcher": "R1",
+          "orientation": "objective",
+          "ops": [
+            "vocab_up",
+            "smoothing_up",
+            "ngram_up(+)"
+          ],
+          "gain": 0.02083333333333337,
+          "status": "resolved"
+        }
+      ],
+      "heldout": 0.24479166666666666
+    }
+  ],
+  "independent": [
+    {
+      "mode": "independent",
+      "seed": 0,
+      "final": {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 2000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.2708333333333333,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.0,
+        0.041666666666666664,
+        0.0625,
+        0.08333333333333333,
+        0.16666666666666666,
+        0.2708333333333333,
+        0.2708333333333333
+      ],
+      "resolved": 0,
+      "unresolved": 0,
+      "values": {
+        "objective": 0.0,
+        "search": 0.0,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [],
+        "search": [],
+        "diversify": [],
+        "efficiency": []
+      },
+      "memory": [],
+      "heldout": 0.24479166666666666
+    },
+    {
+      "mode": "independent",
+      "seed": 1,
+      "final": {
+        "ngram": 3,
+        "word_weight": 1.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 4,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.3958333333333333,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.08333333333333333,
+        0.20833333333333334,
+        0.22916666666666666,
+        0.3125,
+        0.3125,
+        0.3958333333333333
+      ],
+      "resolved": 0,
+      "unresolved": 0,
+      "values": {
+        "objective": 0.0,
+        "search": 0.0,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [],
+        "search": [],
+        "diversify": [],
+        "efficiency": []
+      },
+      "memory": [],
+      "heldout": 0.3697916666666667
+    },
+    {
+      "mode": "independent",
+      "seed": 2,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 1000,
+        "restarts": 4,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.3541666666666667,
+      "campaigns": 7,
+      "runs_spent": 1920,
+      "curve": [
+        0.08333333333333333,
+        0.10416666666666667,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3541666666666667
+      ],
+      "resolved": 0,
+      "unresolved": 0,
+      "values": {
+        "objective": 0.0,
+        "search": 0.0,
+        "diversify": 0.0,
+        "efficiency": 0.0
+      },
+      "skills_retired": {
+        "objective": [],
+        "search": [],
+        "diversify": [],
+        "efficiency": []
+      },
+      "memory": [],
+      "heldout": 0.265625
+    }
+  ]
+}

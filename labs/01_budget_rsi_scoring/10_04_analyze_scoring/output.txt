@@ -1,0 +1,78 @@
+$ python3 labs/01_budget_rsi_scoring/10_04_analyze_scoring/lab.py
+==============================================================================
+Lab 10.04 · Analyse the scoring mechanism
+Question: Which parts of a diff predict a better program, and what can a diff not see?
+==============================================================================
+
+--- 1. One real edit, read as a diff ----------------------------------------
+   --- parent.py
+   +++ child.py
+   @@ -3,0 +4 @@
+   +from cipherlab.runtime import word_hits
+   @@ -7,0 +9 @@
+   +WORD_WEIGHT = 2.0
+   @@ -8,0 +11 @@
+   +VOCAB = 3000
+   @@ -15,0 +19,4 @@
+   +def word_score(p, ctx):
+   +    return WORD_WEIGHT * word_hits(p, ctx, VOCAB)
+   +
+   +
+   @@ -17 +24 @@
+   -    return ngram_score(p)
+   +    return ngram_score(p) + word_score(p, ctx)
+  coordinates: lines_added=8, lines_deleted=1, hunks=5, defs_added=1, defs_removed=0, imports_changed=1, constants_changed=2, control_flow_changed=3
+
+--- 2. Feature importance (standardised ridge coefficients) -----------------
+  feature               coefficient
+  --------------------  -----------
+  parent_score          +0.0571    
+  lines_added           +0.0430    
+  constants_changed     +0.0242    
+  hunks                 -0.0184    
+  imports_changed       +0.0153    
+  defs_added            -0.0093    
+  lines_deleted         +0.0087    
+  control_flow_changed  -0.0074    
+  defs_removed          -0.0011    
+
+--- 3. Does it rank unseen edits? (4-fold cross-validation) -----------------
+  corr(predicted gain, actual gain) on held-out folds: +0.175
+
+--- 4a. 8 diff features vs 4 ------------------------------------------------
+  features                                          k  cv corr(gain)
+  ------------------------------------------------  -  -------------
+  parent + 8 diff coordinates                       9  +0.175       
+  parent + 4 (added, deleted, defs_added, imports)  5  +0.201       
+  parent only (the ablation)                        1  -0.103       
+
+--- 4b. Fewer training edits ------------------------------------------------
+  edits  cv corr(gain)  sd over 5 draws
+  -----  -------------  ---------------
+  12     +0.115         0.082          
+  24     +0.079         0.206          
+  48     +0.198         0.100          
+  96     +0.206         0.019          
+
+--- 5. The blind spot: same diff shape, opposite meaning --------------------
+  edit           n   predicted gain  actual gain
+  -------------  --  --------------  -----------
+  iters_up       10  +0.0105         +0.0088    
+  iters_down     5   -0.0009         -0.0183    
+  restarts_up    9   +0.0057         +0.0391    
+  restarts_down  3   +0.0055         -0.0123    
+  ngram_up       7   -0.0015         -0.0008    
+  ngram_down     10  -0.0034         -0.0218    
+  temp_up        1   -0.0004         -0.0853    
+  temp_down      2   +0.0071         +0.0010    
+  add_words      5   +0.0230         +0.0200    
+  remove_words   1   +0.0203         +0.0076    
+  use_anneal     5   +0.0039         +0.0059    
+  use_hill       2   -0.0490         -0.0278    
+
+  iters_up   coordinates: [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0]
+  iters_down coordinates: [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0]
+  identical: True. A diff-shape readout cannot tell 'search more' from 'search less'.
+  Lab 10.05 adds signed coordinates read from the same diff and tests whether that helps.
+
+done in 0s

@@ -1,0 +1,35 @@
+$ python3 labs/04_adaptive_workflows/10_13_rsiflow_meta_agent/lab.py
+==============================================================================
+Lab 10.13 · RSIFlow meta-agent
+Question: Does a workflow that rewires itself around its bottleneck beat a fixed one?
+==============================================================================
+  seed 0 static    final=0.521  4-gram freq anneal T8 polish 8x8000
+
+--- seed 0 · adaptive workflow changes --------------------------------------
+  step 01 workflow: PROPOSE -> EVALUATE -> INTEGRATE
+    PROFILE: ['cap_bound', 'short_texts'] -> remedies ['init_frequency', 'restarts_down', 'use_anneal', 'remove_polish']
+  step 27 workflow: PROFILE -> PROPOSE[7 remedies] -> SCREEN -> EVALUATE -> INTEGRATE
+  step 30 workflow: PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE
+    PROFILE: ['local_optima', 'cap_bound', 'short_texts', 'high_variance'] -> remedies ['use_anneal', 'restarts_up', 'init_frequency', 'temp_up']
+  step 32 workflow: PROFILE -> PROPOSE[9 remedies] -> SCREEN -> EVALUATE -> INTEGRATE
+  step 35 workflow: PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE
+    PROFILE: ['local_optima', 'cap_bound', 'short_texts', 'high_variance'] -> remedies ['use_anneal', 'restarts_up', 'init_frequency', 'temp_up']
+  step 36 workflow: PROFILE -> PROPOSE[9 remedies] -> SCREEN -> EVALUATE -> INTEGRATE
+  seed 0 adaptive  final=0.625  4-gram words×2 freq anneal T4 polish 8x4000
+  seed 1 static    final=0.583  2-gram words×2 freq anneal T2 8x8000
+  seed 1 adaptive  final=0.521  2-gram words×2 rand anneal T2 8x4000
+  seed 2 static    final=0.625  3-gram words×2 freq anneal T8 k=0.1 4x8000
+  seed 2 adaptive  final=0.688  3-gram words×2 freq anneal T4 k=0.1 2x16000
+
+--- Meta-agent rules after each adaptive run --------------------------------
+  screen_on_low_yield: on x1 u=-0.016; profile_on_stall: OFF x3 u=-0.015; cap_guard: on x1 u=-0.013; drop_dead_target: on x0 u=+0.000
+  screen_on_low_yield: on x1 u=-0.038; profile_on_stall: OFF x3 u=-0.038; cap_guard: on x1 u=-0.038; drop_dead_target: on x0 u=+0.000
+  screen_on_low_yield: on x1 u=-0.018; profile_on_stall: OFF x3 u=-0.006; cap_guard: on x1 u=-0.018; drop_dead_target: on x0 u=+0.000
+
+--- Results -----------------------------------------------------------------
+  workflow  steering       held-out       edit steps
+  --------  -------------  -------------  ----------
+  static    0.576 ± 0.052  0.554 ± 0.090  39.0      
+  adaptive  0.611 ± 0.084  0.575 ± 0.097  36.0      
+
+done in 298s

@@ -1,0 +1,54 @@
+$ python3 labs/03_scaling_coordination/10_10_areal_leader_follower/lab.py
+==============================================================================
+Lab 10.10 · Leader-follower coordination
+Question: Does sharing only replicated findings beat sharing everything, or sharing nothing?
+==============================================================================
+
+--- seed 0 · conditional ----------------------------------------------------
+  campaign 1: ['objective', 'search'] -> best R2/search 0.000->0.083 [resolved] team=0.083
+  campaign 2: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 3: ['efficiency', 'search'] -> best R1/efficiency 0.083->0.083 [unresolved] team=0.083
+  campaign 4: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 5: ['objective', 'efficiency'] -> best R1/objective 0.083->0.188 [resolved] team=0.188
+  campaign 6: ['objective', 'search'] -> best R1/objective 0.188->0.188 [unresolved] team=0.188
+  campaign 7: ['objective', 'efficiency'] -> best R1/objective 0.188->0.188 [resolved] team=0.188
+  seed 0 conditional  final=0.188 campaigns=7 resolved=3 unresolved=4  2-gram words×2 rand hill polish vocab=1000 1x1000
+
+--- seed 0 · share_all ------------------------------------------------------
+  campaign 1: ['objective', 'search'] -> best R2/search 0.000->0.083 [resolved] team=0.083
+  campaign 2: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 3: ['efficiency', 'search'] -> best R1/efficiency 0.083->0.083 [unresolved] team=0.083
+  campaign 4: ['search', 'diversify'] -> best R1/search 0.083->0.083 [unresolved] team=0.083
+  campaign 5: ['objective', 'efficiency'] -> best R1/objective 0.083->0.188 [resolved] team=0.188
+  campaign 6: ['objective', 'search'] -> best R1/objective 0.188->0.188 [unresolved] team=0.188
+  campaign 7: ['objective', 'efficiency'] -> best R1/objective 0.188->0.188 [unresolved] team=0.188
+  seed 0 share_all    final=0.188 campaigns=7 resolved=2 unresolved=5  2-gram words×2 rand hill polish 1x1000
+
+--- seed 0 · independent ----------------------------------------------------
+  seed 0 independent  final=0.271 campaigns=7 resolved=0 unresolved=0  3-gram rand anneal T2 8x2000
+  seed 1 conditional  final=0.375 campaigns=6 resolved=5 unresolved=1  2-gram words×1 freq hill polish 2x1000
+  seed 1 share_all    final=0.438 campaigns=7 resolved=5 unresolved=2  2-gram words×2 rand hill polish vocab=1000 4x1000
+  seed 1 independent  final=0.396 campaigns=7 resolved=0 unresolved=0  3-gram words×1 freq anneal T2 polish 4x1000
+  seed 2 conditional  final=0.375 campaigns=7 resolved=4 unresolved=3  2-gram words×2 rand hill polish vocab=1000 2x1000
+  seed 2 share_all    final=0.292 campaigns=7 resolved=4 unresolved=3  3-gram words×2 rand hill polish 2x1000
+  seed 2 independent  final=0.354 campaigns=7 resolved=0 unresolved=0  2-gram words×2 rand hill polish 4x1000
+
+--- Conditional memory after seed 0 -----------------------------------------
+  c1 R2/search     resolved   gain=+0.083 via ['add_polish(+)', 'use_anneal', 'use_anneal']
+  c2 R1/search     unresolved gain=+0.000 via ['use_anneal', 'iters_up', 'iters_down']
+  c3 R1/efficiency unresolved gain=+0.000 via ['iters_down', 'remove_polish', 'remove_polish']
+  c4 R1/search     unresolved gain=+0.000 via ['remove_polish', 'iters_up', 'iters_up']
+  c5 R1/objective  resolved   gain=+0.104 via ['smoothing_down', 'ngram_up', 'add_words(+)']
+  c6 R1/objective  unresolved gain=+0.000 via ['smoothing_up', 'words_up', 'smoothing_down']
+  c7 R1/objective  resolved   gain=+0.000 via ['smoothing_up', 'words_up', 'vocab_down(+)']
+  orientation values: {'objective': 0.026, 'search': 0.017, 'diversify': 0.0, 'efficiency': 0.0}
+  skills retired by review: {'objective': ['smoothing_down'], 'search': ['iters_down', 'iters_up', 'remove_polish', 'use_anneal'], 'diversify': ['init_frequency', 'use_anneal'], 'efficiency': ['init_frequency', 'iters_down']}
+
+--- Results -----------------------------------------------------------------
+  variant      steering       held-out       campaigns  shared findings
+  -----------  -------------  -------------  ---------  ---------------
+  conditional  0.312 ± 0.108  0.205 ± 0.107  6.7        4.0            
+  share_all    0.306 ± 0.126  0.208 ± 0.082  7.0        3.7            
+  independent  0.340 ± 0.064  0.293 ± 0.067  7.0        0.0            
+
+done in 167s

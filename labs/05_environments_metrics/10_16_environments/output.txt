@@ -1,0 +1,38 @@
+$ python3 labs/05_environments_metrics/10_16_environments/lab.py
+==============================================================================
+Lab 10.16 · Compare environments
+Question: What does each environment interface cost, and what does it let the improver do?
+==============================================================================
+
+--- EaaS / RSIGym (1152 runs) -----------------------------------------------
+  -> 4-gram rand anneal T4 polish 8x4000  16.5s, 24 service calls
+
+--- Terminal / Terminal-RSI (1152 runs; one subprocess per evaluation) ------
+  -> 4-gram rand anneal T4 polish 8x4000  33.4s, 24 shell commands, mean process overhead 0.27s per evaluation
+
+--- Self-play / R2Orch-style task choice (1152 runs) ------------------------
+  practise on 'long' (p(1-p)=0.000) -> probe rate 0.104  3-gram rand hill 2x2000
+  practise on 'long' (p(1-p)=0.243) -> probe rate 0.167  3-gram rand hill polish 2x2000
+  practise on 'long' (p(1-p)=0.222) -> probe rate 0.250  3-gram rand hill polish 8x2000
+  practise on 'medium' (p(1-p)=0.000) -> probe rate 0.083  4-gram rand hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.139) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+  practise on 'medium' (p(1-p)=0.188) -> probe rate 0.250  4-gram freq hill ranked polish 8x2000
+
+--- Same final check for all three (steering, then held-out) ----------------
+  environment  runs  seconds  steering  held-out  program                              
+  -----------  ----  -------  --------  --------  -------------------------------------
+  EaaS         1152  16.5     0.406     0.375     4-gram rand anneal T4 polish 8x4000  
+  terminal     1152  33.4     0.406     0.375     4-gram rand anneal T4 polish 8x4000  
+  self-play    1164  12.5     0.292     0.297     4-gram freq hill ranked polish 8x2000
+
+  EaaS and terminal run the same improver with the same seed: same program, different cost.
+  Terminal isolation (a crash cannot take the improver down) costs a process start per evaluation.
+  Self-play spent its budget on 12 self-chosen practice tasks: [('long', 0.0), ('long', 0.243), ('long', 0.222), ('medium', 0.0), ('medium', 0.139), ('medium', 0.188), ('medium', 0.188), ('medium', 0.188), ('medium', 0.188), ('medium', 0.188), ('medium', 0.188), ('medium', 0.188)]
+
+done in 83s

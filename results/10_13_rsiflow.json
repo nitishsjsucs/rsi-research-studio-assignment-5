@@ -1,0 +1,609 @@
+{
+  "static": [
+    {
+      "adaptive": false,
+      "seed": 0,
+      "final": {
+        "ngram": 4,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 8.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5208333333333334,
+      "steps": 39,
+      "runs_spent": 1920,
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.10416666666666667,
+        0.14583333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.3125,
+        0.3125,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.4583333333333333,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "profile_on_stall": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.4739583333333333
+    },
+    {
+      "adaptive": false,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5833333333333334,
+      "steps": 39,
+      "runs_spent": 1920,
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.25,
+        0.25,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3541666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "profile_on_stall": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.5364583333333334
+    },
+    {
+      "adaptive": false,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 4,
+        "temp0": 8.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "final_rate": 0.625,
+      "steps": 39,
+      "runs_spent": 1920,
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333,
+        0.2916666666666667,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "profile_on_stall": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.6510416666666666
+    }
+  ],
+  "adaptive": [
+    {
+      "adaptive": true,
+      "seed": 0,
+      "final": {
+        "ngram": 4,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 4000,
+        "restarts": 8,
+        "temp0": 4.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.625,
+      "steps": 36,
+      "runs_spent": 1920,
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.10416666666666667,
+        0.14583333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.3125,
+        0.3125,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.4583333333333333,
+        0.4583333333333333,
+        0.5416666666666666,
+        0.5416666666666666,
+        0.5416666666666666,
+        0.5416666666666666,
+        0.5416666666666666,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          27,
+          "PROFILE -> PROPOSE[7 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          30,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          32,
+          "PROFILE -> PROPOSE[9 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          35,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          36,
+          "PROFILE -> PROPOSE[9 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0164
+        },
+        "profile_on_stall": {
+          "enabled": false,
+          "activations": 3,
+          "usefulness": -0.0155
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0133
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.5833333333333334
+    },
+    {
+      "adaptive": true,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 4000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5208333333333334,
+      "steps": 36,
+      "runs_spent": 1920,
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.25,
+        0.25,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3541666666666667,
+        0.5,
+        0.5,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          19,
+          "PROFILE -> PROPOSE[8 remedies] -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          20,
+          "PROFILE -> PROPOSE[8 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          22,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          23,
+          "PROFILE -> PROPOSE[8 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          26,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          27,
+          "PROFILE -> PROPOSE[8 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          30,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0385
+        },
+        "profile_on_stall": {
+          "enabled": false,
+          "activations": 3,
+          "usefulness": -0.0385
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0376
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.4739583333333333
+    },
+    {
+      "adaptive": true,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 16000,
+        "restarts": 2,
+        "temp0": 4.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "final_rate": 0.6875,
+      "steps": 36,
+      "runs_spent": 1920,
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333,
+        0.2916666666666667,
+        0.2916666666666667,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.4583333333333333,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ],
+      "workflows": [
+        [
+          1,
+          "PROPOSE -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          16,
+          "PROFILE -> PROPOSE[9 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          19,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          22,
+          "PROFILE -> PROPOSE[7 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          25,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          28,
+          "PROFILE -> PROPOSE[8 remedies] -> SCREEN -> EVALUATE -> INTEGRATE"
+        ],
+        [
+          31,
+          "PROPOSE -> SCREEN -> EVALUATE -> INTEGRATE"
+        ]
+      ],
+      "rules": {
+        "screen_on_low_yield": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0175
+        },
+        "profile_on_stall": {
+          "enabled": false,
+          "activations": 3,
+          "usefulness": -0.0064
+        },
+        "cap_guard": {
+          "enabled": true,
+          "activations": 1,
+          "usefulness": -0.0177
+        },
+        "drop_dead_target": {
+          "enabled": true,
+          "activations": 0,
+          "usefulness": 0.0
+        }
+      },
+      "heldout": 0.6666666666666666
+    }
+  ]
+}

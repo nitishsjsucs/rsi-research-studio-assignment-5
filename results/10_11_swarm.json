@@ -1,0 +1,5247 @@
+{
+  "variants": {
+    "swarm (full)": [
+      {
+        "seed": 0,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 0.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "best_rate": 0.125,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "objective",
+            "diversity": 0.05454545454545455,
+            "runs": 288,
+            "improved": [
+              "objective",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.0,
+            "best_agent": "efficiency",
+            "diversity": 0.09090909090909091,
+            "runs": 528,
+            "improved": [
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.020833333333333332,
+            "best_agent": "objective",
+            "diversity": 0.14545454545454545,
+            "runs": 816,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.020833333333333332,
+              "search": 0.020833333333333332,
+              "diversify": 0.020833333333333332,
+              "efficiency": 0.020833333333333332,
+              "explorer": 0.020833333333333332
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.10909090909090909,
+            "runs": 1104,
+            "improved": [
+              "search",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1344,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1584,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1824,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: smoothing_up +0.01]",
+            "weights_top": [
+              [
+                "add_words",
+                1.0
+              ],
+              [
+                "words_up",
+                1.0
+              ],
+              [
+                "words_down",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: add_polish +0.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "use_anneal",
+                1.2800000000000002
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.0240000000000002
+              ],
+              [
+                "restarts_up",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: add_polish +0.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "swap_ranked",
+                1.0
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: smoothing_up +0.01]",
+            "weights_top": [
+              [
+                "smoothing_up",
+                1.2800000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.09895833333333333
+      },
+      {
+        "seed": 1,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 1000
+        },
+        "best_rate": 0.625,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.08333333333333333,
+            "best_agent": "search",
+            "diversity": 0.03636363636363636,
+            "runs": 288,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.2708333333333333,
+            "best_agent": "search",
+            "diversity": 0.07272727272727272,
+            "runs": 576,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.2708333333333333,
+              "search": 0.2708333333333333,
+              "diversify": 0.2708333333333333,
+              "efficiency": 0.2708333333333333,
+              "explorer": 0.2708333333333333
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.3541666666666667,
+            "best_agent": "diversify",
+            "diversity": 0.07272727272727272,
+            "runs": 864,
+            "improved": [
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.3541666666666667,
+              "search": 0.3541666666666667,
+              "diversify": 0.3541666666666667,
+              "efficiency": 0.3541666666666667,
+              "explorer": 0.3541666666666667
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.4583333333333333,
+            "best_agent": "objective",
+            "diversity": 0.09090909090909091,
+            "runs": 1152,
+            "improved": [
+              "search",
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.4583333333333333,
+              "search": 0.4583333333333333,
+              "diversify": 0.4583333333333333,
+              "efficiency": 0.4583333333333333,
+              "explorer": 0.4583333333333333
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.5208333333333334,
+            "best_agent": "explorer",
+            "diversity": 0.07272727272727272,
+            "runs": 1440,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.5208333333333334,
+              "search": 0.5208333333333334,
+              "diversify": 0.5208333333333334,
+              "efficiency": 0.5208333333333334,
+              "explorer": 0.5208333333333334
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.5416666666666666,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1680,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.5416666666666666,
+              "search": 0.5416666666666666,
+              "diversify": 0.5416666666666666,
+              "efficiency": 0.5416666666666666,
+              "explorer": 0.5416666666666666
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.625,
+            "best_agent": "explorer",
+            "diversity": 0.03636363636363636,
+            "runs": 1920,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.625,
+              "search": 0.625,
+              "diversify": 0.625,
+              "efficiency": 0.625,
+              "explorer": 0.625
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.625,
+            "genome": "2-gram words\u00d72 rand anneal T2 polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: smoothing_up +1.03]",
+            "weights_top": [
+              [
+                "add_words",
+                1.2800000000000002
+              ],
+              [
+                "smoothing_up",
+                1.2800000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.625,
+            "genome": "2-gram words\u00d72 rand anneal T2 polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +2.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "iters_up",
+                1.0240000000000002
+              ],
+              [
+                "use_hill",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.625,
+            "genome": "2-gram words\u00d72 rand anneal T2 polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: restarts_up +0.02]",
+            "weights_top": [
+              [
+                "restarts_up",
+                4.194304000000002
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "init_frequency",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.625,
+            "genome": "2-gram words\u00d72 rand anneal T2 polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.0240000000000002
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "remove_polish",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.625,
+            "genome": "2-gram words\u00d72 rand anneal T2 polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: use_anneal +4.10]",
+            "weights_top": [
+              [
+                "iters_up",
+                1.6
+              ],
+              [
+                "use_anneal",
+                1.6
+              ],
+              [
+                "vocab_down",
+                1.6
+              ]
+            ]
+          }
+        },
+        "heldout": 0.4427083333333333
+      },
+      {
+        "seed": 2,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 2,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "best_rate": 0.3125,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "diversify",
+            "diversity": 0.05454545454545454,
+            "runs": 288,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.08333333333333333,
+            "best_agent": "efficiency",
+            "diversity": 0.1818181818181818,
+            "runs": 576,
+            "improved": [
+              "objective",
+              "search",
+              "efficiency",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.08333333333333333,
+            "best_agent": "explorer",
+            "diversity": 0.03636363636363636,
+            "runs": 816,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.10416666666666667,
+            "best_agent": "explorer",
+            "diversity": 0.07272727272727272,
+            "runs": 1056,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.10416666666666667,
+              "search": 0.10416666666666667,
+              "diversify": 0.10416666666666667,
+              "efficiency": 0.10416666666666667,
+              "explorer": 0.10416666666666667
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.3125,
+            "best_agent": "search",
+            "diversity": 0.09090909090909091,
+            "runs": 1344,
+            "improved": [
+              "objective",
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.3125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1584,
+            "improved": [],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.3125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1824,
+            "improved": [],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.3125,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1920,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d71 freq hill polish 2x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: words_down +0.01]",
+            "weights_top": [
+              [
+                "add_words",
+                1.6
+              ],
+              [
+                "words_down",
+                1.6
+              ],
+              [
+                "smoothing_up",
+                1.0240000000000002
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +1.04]",
+            "weights_top": [
+              [
+                "use_hill",
+                1.0
+              ],
+              [
+                "temp_up",
+                1.0
+              ],
+              [
+                "temp_down",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.03]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6384000000000005
+              ],
+              [
+                "restarts_up",
+                1.0
+              ],
+              [
+                "init_random",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: init_frequency +0.03]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.2800000000000002
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: iters_up +1.00]",
+            "weights_top": [
+              [
+                "restarts_up",
+                1.6
+              ],
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.6
+              ]
+            ]
+          }
+        },
+        "heldout": 0.3229166666666667
+      }
+    ],
+    "no recombination": [
+      {
+        "seed": 0,
+        "recombination": false,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 0.0,
+          "init": "random",
+          "search": "anneal",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "best_rate": 0.125,
+        "best_agent": "search",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "objective",
+            "diversity": 0.05454545454545455,
+            "runs": 288,
+            "improved": [
+              "objective",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.0,
+            "best_agent": "efficiency",
+            "diversity": 0.09090909090909091,
+            "runs": 528,
+            "improved": [
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.020833333333333332,
+            "best_agent": "search",
+            "diversity": 0.14545454545454545,
+            "runs": 768,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.020833333333333332,
+              "search": 0.020833333333333332,
+              "diversify": 0.020833333333333332,
+              "efficiency": 0.020833333333333332,
+              "explorer": 0.020833333333333332
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.1090909090909091,
+            "runs": 1008,
+            "improved": [
+              "search",
+              "diversify",
+              "efficiency",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1248,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.05454545454545455,
+            "runs": 1488,
+            "improved": [
+              "search",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.05454545454545455,
+            "runs": 1728,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.05454545454545455,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 1x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: smoothing_up +0.01]",
+            "weights_top": [
+              [
+                "add_words",
+                1.0
+              ],
+              [
+                "words_up",
+                1.0
+              ],
+              [
+                "words_down",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: add_polish +0.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "use_anneal",
+                1.2800000000000002
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 1x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.3107200000000006
+              ],
+              [
+                "restarts_up",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 1x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.3107200000000006
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: add_polish +0.02]",
+            "weights_top": [
+              [
+                "use_anneal",
+                1.6
+              ],
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "smoothing_up",
+                1.2800000000000002
+              ]
+            ]
+          }
+        },
+        "heldout": 0.09895833333333333
+      },
+      {
+        "seed": 1,
+        "recombination": false,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 1000,
+          "restarts": 16,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 1000
+        },
+        "best_rate": 0.5416666666666666,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.08333333333333333,
+            "best_agent": "search",
+            "diversity": 0.03636363636363636,
+            "runs": 288,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.1875,
+            "best_agent": "objective",
+            "diversity": 0.07272727272727272,
+            "runs": 528,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.1875,
+              "search": 0.1875,
+              "diversify": 0.1875,
+              "efficiency": 0.1875,
+              "explorer": 0.1875
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.2708333333333333,
+            "best_agent": "diversify",
+            "diversity": 0.07272727272727272,
+            "runs": 768,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.2708333333333333,
+              "search": 0.2708333333333333,
+              "diversify": 0.2708333333333333,
+              "efficiency": 0.2708333333333333,
+              "explorer": 0.2708333333333333
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.3541666666666667,
+            "best_agent": "diversify",
+            "diversity": 0.03636363636363636,
+            "runs": 1008,
+            "improved": [
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.3541666666666667,
+              "search": 0.3541666666666667,
+              "diversify": 0.3541666666666667,
+              "efficiency": 0.3541666666666667,
+              "explorer": 0.3541666666666667
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.4375,
+            "best_agent": "explorer",
+            "diversity": 0.10909090909090909,
+            "runs": 1248,
+            "improved": [
+              "search",
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.4375,
+              "search": 0.4375,
+              "diversify": 0.4375,
+              "efficiency": 0.4375,
+              "explorer": 0.4375
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.5,
+            "best_agent": "diversify",
+            "diversity": 0.03636363636363636,
+            "runs": 1488,
+            "improved": [
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.5,
+              "search": 0.5,
+              "diversify": 0.5,
+              "efficiency": 0.5,
+              "explorer": 0.5
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.5416666666666666,
+            "best_agent": "diversify",
+            "diversity": 0.07272727272727272,
+            "runs": 1728,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.5416666666666666,
+              "search": 0.5416666666666666,
+              "diversify": 0.5416666666666666,
+              "efficiency": 0.5416666666666666,
+              "explorer": 0.5416666666666666
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.5416666666666666,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.5416666666666666,
+              "search": 0.5416666666666666,
+              "diversify": 0.5416666666666666,
+              "efficiency": 0.5416666666666666,
+              "explorer": 0.5416666666666666
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish vocab=1000 16x1000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: add_words +5.00]",
+            "weights_top": [
+              [
+                "add_words",
+                1.2800000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish vocab=1000 16x1000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +1.04]",
+            "weights_top": [
+              [
+                "iters_up",
+                1.6384000000000005
+              ],
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "use_hill",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish vocab=1000 16x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: restarts_up +2.10]",
+            "weights_top": [
+              [
+                "restarts_up",
+                13.421772800000006
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "init_frequency",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish vocab=1000 16x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them",
+            "weights_top": [
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "add_polish",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish vocab=1000 16x1000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: vocab_down +4.01]",
+            "weights_top": [
+              [
+                "vocab_down",
+                1.6
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.4322916666666667
+      },
+      {
+        "seed": 2,
+        "recombination": false,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 2,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "best_rate": 0.3125,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "diversify",
+            "diversity": 0.05454545454545454,
+            "runs": 288,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.08333333333333333,
+            "best_agent": "efficiency",
+            "diversity": 0.1818181818181818,
+            "runs": 528,
+            "improved": [
+              "objective",
+              "search",
+              "efficiency",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.08333333333333333,
+            "best_agent": "explorer",
+            "diversity": 0.03636363636363636,
+            "runs": 768,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.10416666666666667,
+            "best_agent": "explorer",
+            "diversity": 0.07272727272727272,
+            "runs": 1008,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.10416666666666667,
+              "search": 0.10416666666666667,
+              "diversify": 0.10416666666666667,
+              "efficiency": 0.10416666666666667,
+              "explorer": 0.10416666666666667
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.25,
+            "best_agent": "objective",
+            "diversity": 0.09090909090909091,
+            "runs": 1248,
+            "improved": [
+              "objective",
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.25,
+              "search": 0.25,
+              "diversify": 0.25,
+              "efficiency": 0.25,
+              "explorer": 0.25
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.3125,
+            "best_agent": "diversify",
+            "diversity": 0.1,
+            "runs": 1488,
+            "improved": [
+              "search",
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.3125,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1728,
+            "improved": [],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.3125,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1920,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.3125,
+              "search": 0.3125,
+              "diversify": 0.3125,
+              "efficiency": 0.3125,
+              "explorer": 0.3125
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d71 freq hill polish 2x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: words_down +0.01]",
+            "weights_top": [
+              [
+                "add_words",
+                1.6
+              ],
+              [
+                "words_down",
+                1.6
+              ],
+              [
+                "smoothing_up",
+                1.0240000000000002
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +2.03]",
+            "weights_top": [
+              [
+                "iters_up",
+                1.3107200000000006
+              ],
+              [
+                "use_hill",
+                1.0
+              ],
+              [
+                "temp_up",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +3.11]",
+            "weights_top": [
+              [
+                "init_frequency",
+                2.621440000000001
+              ],
+              [
+                "restarts_up",
+                1.0
+              ],
+              [
+                "init_random",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: iters_down +1.03]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.2800000000000002
+              ],
+              [
+                "iters_down",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.3125,
+            "genome": "2-gram words\u00d72 freq hill polish 2x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: iters_up +1.00]",
+            "weights_top": [
+              [
+                "restarts_up",
+                1.6
+              ],
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.6
+              ]
+            ]
+          }
+        },
+        "heldout": 0.3229166666666667
+      }
+    ],
+    "no shared experience": [
+      {
+        "seed": 0,
+        "recombination": true,
+        "shared_experience": false,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 3,
+          "word_weight": 0.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "rank_local",
+          "polish": true,
+          "iters": 1000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 3000
+        },
+        "best_rate": 0.1875,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 288,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.0,
+            "best_agent": "efficiency",
+            "diversity": 0.07272727272727272,
+            "runs": 528,
+            "improved": [
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.020833333333333332,
+            "best_agent": "objective",
+            "diversity": 0.12727272727272726,
+            "runs": 816,
+            "improved": [
+              "search",
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.020833333333333332,
+              "search": 0.020833333333333332,
+              "diversify": 0.020833333333333332,
+              "efficiency": 0.020833333333333332,
+              "explorer": 0.020833333333333332
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.125,
+            "best_agent": "diversify",
+            "diversity": 0.12727272727272726,
+            "runs": 1104,
+            "improved": [
+              "objective",
+              "search",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.125,
+              "search": 0.125,
+              "diversify": 0.125,
+              "efficiency": 0.125,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.14583333333333334,
+            "best_agent": "efficiency",
+            "diversity": 0.07272727272727272,
+            "runs": 1392,
+            "improved": [
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.14583333333333334,
+              "search": 0.14583333333333334,
+              "diversify": 0.14583333333333334,
+              "efficiency": 0.14583333333333334,
+              "explorer": 0.14583333333333334
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.14583333333333334,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1632,
+            "improved": [],
+            "agents": {
+              "objective": 0.14583333333333334,
+              "search": 0.14583333333333334,
+              "diversify": 0.14583333333333334,
+              "efficiency": 0.14583333333333334,
+              "explorer": 0.14583333333333334
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.1875,
+            "best_agent": "search",
+            "diversity": 0.05454545454545454,
+            "runs": 1872,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.1875,
+              "search": 0.1875,
+              "diversify": 0.1875,
+              "efficiency": 0.1875,
+              "explorer": 0.1875
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.1875,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.1875,
+              "search": 0.1875,
+              "diversify": 0.1875,
+              "efficiency": 0.1875,
+              "explorer": 0.1875
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.1875,
+            "genome": "3-gram freq hill ranked polish 1x1000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: ngram_up +2.95]",
+            "weights_top": [
+              [
+                "ngram_up",
+                1.2800000000000002
+              ],
+              [
+                "smoothing_up",
+                1.0240000000000002
+              ],
+              [
+                "add_words",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.1875,
+            "genome": "3-gram freq hill ranked polish 1x1000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_down +2.07]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ],
+              [
+                "iters_down",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.1875,
+            "genome": "3-gram freq hill ranked polish 1x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: iters_down +2.07]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "iters_down",
+                1.2800000000000002
+              ],
+              [
+                "use_anneal",
+                1.0240000000000002
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.1875,
+            "genome": "3-gram freq hill ranked polish 1x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: swap_ranked +1.03]",
+            "weights_top": [
+              [
+                "swap_ranked",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "add_polish",
+                1.6
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.1875,
+            "genome": "3-gram freq hill ranked polish 1x1000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "ngram_up",
+                1.0
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.125
+      },
+      {
+        "seed": 1,
+        "recombination": true,
+        "shared_experience": false,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 8,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 1000
+        },
+        "best_rate": 0.5416666666666666,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.08333333333333333,
+            "best_agent": "search",
+            "diversity": 0.07272727272727272,
+            "runs": 336,
+            "improved": [
+              "search",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.2708333333333333,
+            "best_agent": "search",
+            "diversity": 0.07272727272727272,
+            "runs": 624,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.2708333333333333,
+              "search": 0.2708333333333333,
+              "diversify": 0.2708333333333333,
+              "efficiency": 0.2708333333333333,
+              "explorer": 0.2708333333333333
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.3541666666666667,
+            "best_agent": "diversify",
+            "diversity": 0.07272727272727272,
+            "runs": 912,
+            "improved": [
+              "diversify",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.3541666666666667,
+              "search": 0.3541666666666667,
+              "diversify": 0.3541666666666667,
+              "efficiency": 0.3541666666666667,
+              "explorer": 0.3541666666666667
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.4583333333333333,
+            "best_agent": "objective",
+            "diversity": 0.07272727272727272,
+            "runs": 1200,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.4583333333333333,
+              "search": 0.4583333333333333,
+              "diversify": 0.4583333333333333,
+              "efficiency": 0.4583333333333333,
+              "explorer": 0.4583333333333333
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.5208333333333334,
+            "best_agent": "explorer",
+            "diversity": 0.07272727272727272,
+            "runs": 1488,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.5208333333333334,
+              "search": 0.5208333333333334,
+              "diversify": 0.5208333333333334,
+              "efficiency": 0.5208333333333334,
+              "explorer": 0.5208333333333334
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.5416666666666666,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1728,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.5416666666666666,
+              "search": 0.5416666666666666,
+              "diversify": 0.5416666666666666,
+              "efficiency": 0.5416666666666666,
+              "explorer": 0.5416666666666666
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.5416666666666666,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.5416666666666666,
+              "search": 0.5416666666666666,
+              "diversify": 0.5416666666666666,
+              "efficiency": 0.5416666666666666,
+              "explorer": 0.5416666666666666
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: smoothing_up +1.03]",
+            "weights_top": [
+              [
+                "smoothing_up",
+                1.6
+              ],
+              [
+                "add_words",
+                1.2800000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +2.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "iters_up",
+                1.0240000000000002
+              ],
+              [
+                "use_hill",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: restarts_up +0.02]",
+            "weights_top": [
+              [
+                "restarts_up",
+                4.194304000000002
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "init_frequency",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.0240000000000002
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "remove_polish",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.5416666666666666,
+            "genome": "2-gram words\u00d72 rand hill polish k=0.1 vocab=1000 8x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: vocab_down +3.00]",
+            "weights_top": [
+              [
+                "vocab_down",
+                1.6
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.4166666666666667
+      },
+      {
+        "seed": 2,
+        "recombination": true,
+        "shared_experience": false,
+        "evolve": true,
+        "migrate": true,
+        "best": {
+          "ngram": 2,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "anneal",
+          "swap": "rank_local",
+          "polish": true,
+          "iters": 1000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.01,
+          "vocab": 1000
+        },
+        "best_rate": 0.375,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.08333333333333333,
+            "best_agent": "explorer",
+            "diversity": 0.07272727272727272,
+            "runs": 336,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.08333333333333333,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 576,
+            "improved": [],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.08333333333333333,
+              "diversify": 0.08333333333333333,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.08333333333333333
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.1875,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 816,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.1875,
+              "search": 0.1875,
+              "diversify": 0.1875,
+              "efficiency": 0.1875,
+              "explorer": 0.1875
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.20833333333333334,
+            "best_agent": "diversify",
+            "diversity": 0.03636363636363636,
+            "runs": 1056,
+            "improved": [
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.20833333333333334,
+              "search": 0.20833333333333334,
+              "diversify": 0.20833333333333334,
+              "efficiency": 0.20833333333333334,
+              "explorer": 0.20833333333333334
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.2708333333333333,
+            "best_agent": "objective",
+            "diversity": 0.07272727272727272,
+            "runs": 1344,
+            "improved": [
+              "search",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.2708333333333333,
+              "search": 0.2708333333333333,
+              "diversify": 0.2708333333333333,
+              "efficiency": 0.2708333333333333,
+              "explorer": 0.2708333333333333
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.375,
+            "best_agent": "objective",
+            "diversity": 0.03636363636363636,
+            "runs": 1584,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.375,
+              "search": 0.375,
+              "diversify": 0.375,
+              "efficiency": 0.375,
+              "explorer": 0.375
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.375,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1824,
+            "improved": [],
+            "agents": {
+              "objective": 0.375,
+              "search": 0.375,
+              "diversify": 0.375,
+              "efficiency": 0.375,
+              "explorer": 0.375
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.375,
+            "best_agent": "objective",
+            "diversity": 0.0,
+            "runs": 1920,
+            "improved": [],
+            "agents": {
+              "objective": 0.375,
+              "search": 0.375,
+              "diversify": 0.375,
+              "efficiency": 0.375,
+              "explorer": 0.375
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.375,
+            "genome": "2-gram words\u00d72 freq anneal T2 ranked polish vocab=1000 1x1000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: vocab_down +5.09]",
+            "weights_top": [
+              [
+                "add_words",
+                1.6
+              ],
+              [
+                "vocab_down",
+                1.6
+              ],
+              [
+                "ngram_up",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.375,
+            "genome": "2-gram words\u00d72 freq anneal T2 ranked polish vocab=1000 1x1000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: use_anneal +1.97]",
+            "weights_top": [
+              [
+                "use_anneal",
+                1.6
+              ],
+              [
+                "use_hill",
+                1.0
+              ],
+              [
+                "temp_down",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.375,
+            "genome": "2-gram words\u00d72 freq anneal T2 ranked polish vocab=1000 1x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +1.09]",
+            "weights_top": [
+              [
+                "init_frequency",
+                2.5600000000000005
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "restarts_up",
+                0.8
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.375,
+            "genome": "2-gram words\u00d72 freq anneal T2 ranked polish vocab=1000 1x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: swap_ranked +2.02]",
+            "weights_top": [
+              [
+                "swap_ranked",
+                1.6
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "add_polish",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.375,
+            "genome": "2-gram words\u00d72 freq anneal T2 ranked polish vocab=1000 1x1000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: add_polish +4.06]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "ngram_up",
+                1.0
+              ],
+              [
+                "add_words",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.234375
+      }
+    ],
+    "no migration": [
+      {
+        "seed": 0,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": false,
+        "best": {
+          "ngram": 3,
+          "word_weight": 2.0,
+          "init": "frequency",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": false,
+          "iters": 2000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 3000
+        },
+        "best_rate": 0.20833333333333334,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "objective",
+            "diversity": 0.05454545454545455,
+            "runs": 288,
+            "improved": [
+              "objective",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.0,
+            "best_agent": "efficiency",
+            "diversity": 0.09090909090909091,
+            "runs": 528,
+            "improved": [
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.020833333333333332,
+            "best_agent": "objective",
+            "diversity": 0.14545454545454545,
+            "runs": 816,
+            "improved": [
+              "search",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.020833333333333332,
+              "search": 0.020833333333333332,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.125,
+            "best_agent": "explorer",
+            "diversity": 0.21818181818181817,
+            "runs": 1104,
+            "improved": [
+              "search",
+              "efficiency"
+            ],
+            "agents": {
+              "objective": 0.020833333333333332,
+              "search": 0.125,
+              "diversify": 0.0,
+              "efficiency": 0.041666666666666664,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.125,
+            "best_agent": "explorer",
+            "diversity": 0.2545454545454545,
+            "runs": 1344,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.125,
+              "diversify": 0.0,
+              "efficiency": 0.041666666666666664,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.2545454545454545,
+            "runs": 1584,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.08333333333333333,
+              "search": 0.125,
+              "diversify": 0.0,
+              "efficiency": 0.041666666666666664,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.125,
+            "best_agent": "search",
+            "diversity": 0.2909090909090909,
+            "runs": 1824,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.10416666666666667,
+              "search": 0.125,
+              "diversify": 0.0,
+              "efficiency": 0.041666666666666664,
+              "explorer": 0.125
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.20833333333333334,
+            "best_agent": "objective",
+            "diversity": 0.3272727272727273,
+            "runs": 1920,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.20833333333333334,
+              "search": 0.125,
+              "diversify": 0.0,
+              "efficiency": 0.041666666666666664,
+              "explorer": 0.125
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.20833333333333334,
+            "genome": "3-gram words\u00d72 freq hill k=0.1 1x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: add_words +5.02]",
+            "weights_top": [
+              [
+                "smoothing_up",
+                2.0480000000000005
+              ],
+              [
+                "add_words",
+                1.6
+              ],
+              [
+                "ngram_up",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: add_polish +0.02]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "use_anneal",
+                1.2800000000000002
+              ],
+              [
+                "iters_up",
+                1.2800000000000002
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.0,
+            "genome": "2-gram freq hill 1x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "restarts_up",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.041666666666666664,
+            "genome": "2-gram freq hill polish 1x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: add_polish +2.03]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.125,
+            "genome": "2-gram rand anneal T2 polish 1x2000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: smoothing_up +0.01]",
+            "weights_top": [
+              [
+                "smoothing_up",
+                1.2800000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ],
+              [
+                "ngram_down",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.203125
+      },
+      {
+        "seed": 1,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": false,
+        "best": {
+          "ngram": 3,
+          "word_weight": 2.0,
+          "init": "random",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 1000,
+          "restarts": 16,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 3000
+        },
+        "best_rate": 0.5208333333333334,
+        "best_agent": "search",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.08333333333333333,
+            "best_agent": "search",
+            "diversity": 0.03636363636363636,
+            "runs": 288,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.08333333333333333,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.14583333333333334,
+            "best_agent": "objective",
+            "diversity": 0.12727272727272726,
+            "runs": 576,
+            "improved": [
+              "diversify",
+              "efficiency",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.14583333333333334,
+              "search": 0.08333333333333333,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.020833333333333332
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.20833333333333334,
+            "best_agent": "diversify",
+            "diversity": 0.20909090909090908,
+            "runs": 864,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.16666666666666666,
+              "search": 0.08333333333333333,
+              "diversify": 0.20833333333333334,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.020833333333333332
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.2916666666666667,
+            "best_agent": "explorer",
+            "diversity": 0.21818181818181817,
+            "runs": 1152,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.1875,
+              "search": 0.08333333333333333,
+              "diversify": 0.25,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.2916666666666667
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.5208333333333334,
+            "best_agent": "search",
+            "diversity": 0.24545454545454543,
+            "runs": 1440,
+            "improved": [
+              "objective",
+              "diversify"
+            ],
+            "agents": {
+              "objective": 0.25,
+              "search": 0.5208333333333334,
+              "diversify": 0.2916666666666667,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.2916666666666667
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.5208333333333334,
+            "best_agent": "search",
+            "diversity": 0.24545454545454543,
+            "runs": 1680,
+            "improved": [],
+            "agents": {
+              "objective": 0.25,
+              "search": 0.5208333333333334,
+              "diversify": 0.2916666666666667,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.2916666666666667
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.5208333333333334,
+            "best_agent": "search",
+            "diversity": 0.22727272727272724,
+            "runs": 1920,
+            "improved": [
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.25,
+              "search": 0.5208333333333334,
+              "diversify": 0.2916666666666667,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.2916666666666667
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.25,
+            "genome": "3-gram words\u00d72 rand hill polish k=1 2x1000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: add_words +3.00]",
+            "weights_top": [
+              [
+                "smoothing_up",
+                2.5600000000000005
+              ],
+              [
+                "add_words",
+                1.0240000000000002
+              ],
+              [
+                "ngram_up",
+                1.0
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.5208333333333334,
+            "genome": "3-gram words\u00d72 rand hill polish k=0.1 16x1000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: add_polish +4.06]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "use_hill",
+                1.0
+              ],
+              [
+                "temp_up",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.2916666666666667,
+            "genome": "3-gram rand hill polish k=0.1 16x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: restarts_up +2.06]",
+            "weights_top": [
+              [
+                "restarts_up",
+                4.194304000000002
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "init_frequency",
+                1.0
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.08333333333333333,
+            "genome": "2-gram rand hill polish 1x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: add_polish +4.06]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.2916666666666667,
+            "genome": "3-gram rand hill polish k=1 16x1000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: restarts_up +0.05]",
+            "weights_top": [
+              [
+                "ngram_up",
+                1.6
+              ],
+              [
+                "restarts_up",
+                1.6
+              ],
+              [
+                "remove_words",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.5104166666666666
+      },
+      {
+        "seed": 2,
+        "recombination": true,
+        "shared_experience": true,
+        "evolve": true,
+        "migrate": false,
+        "best": {
+          "ngram": 2,
+          "word_weight": 1.0,
+          "init": "random",
+          "search": "hill",
+          "swap": "uniform",
+          "polish": true,
+          "iters": 2000,
+          "restarts": 1,
+          "temp0": 2.0,
+          "smoothing": 0.1,
+          "vocab": 1000
+        },
+        "best_rate": 0.25,
+        "best_agent": "objective",
+        "history": [
+          {
+            "gen": 1,
+            "best": 0.0,
+            "best_agent": "diversify",
+            "diversity": 0.05454545454545454,
+            "runs": 288,
+            "improved": [
+              "diversify",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.0,
+              "search": 0.0,
+              "diversify": 0.0,
+              "efficiency": 0.0,
+              "explorer": 0.0
+            }
+          },
+          {
+            "gen": 2,
+            "best": 0.08333333333333333,
+            "best_agent": "efficiency",
+            "diversity": 0.1818181818181818,
+            "runs": 576,
+            "improved": [
+              "objective",
+              "search",
+              "efficiency",
+              "explorer"
+            ],
+            "agents": {
+              "objective": 0.041666666666666664,
+              "search": 0.020833333333333332,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 3,
+            "best": 0.08333333333333333,
+            "best_agent": "efficiency",
+            "diversity": 0.20909090909090908,
+            "runs": 816,
+            "improved": [
+              "search"
+            ],
+            "agents": {
+              "objective": 0.041666666666666664,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 4,
+            "best": 0.08333333333333333,
+            "best_agent": "efficiency",
+            "diversity": 0.20909090909090908,
+            "runs": 1056,
+            "improved": [],
+            "agents": {
+              "objective": 0.041666666666666664,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 5,
+            "best": 0.14583333333333334,
+            "best_agent": "objective",
+            "diversity": 0.24545454545454543,
+            "runs": 1296,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.14583333333333334,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 6,
+            "best": 0.16666666666666666,
+            "best_agent": "objective",
+            "diversity": 0.2818181818181818,
+            "runs": 1536,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.16666666666666666,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 7,
+            "best": 0.16666666666666666,
+            "best_agent": "objective",
+            "diversity": 0.2818181818181818,
+            "runs": 1776,
+            "improved": [],
+            "agents": {
+              "objective": 0.16666666666666666,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          },
+          {
+            "gen": 8,
+            "best": 0.25,
+            "best_agent": "objective",
+            "diversity": 0.2818181818181818,
+            "runs": 1920,
+            "improved": [
+              "objective"
+            ],
+            "agents": {
+              "objective": 0.25,
+              "search": 0.0625,
+              "diversify": 0.0,
+              "efficiency": 0.08333333333333333,
+              "explorer": 0.041666666666666664
+            }
+          }
+        ],
+        "runs_spent": 1920,
+        "agents": {
+          "objective": {
+            "rate": 0.25,
+            "genome": "2-gram words\u00d71 rand hill polish k=0.1 vocab=1000 1x2000",
+            "hypothesis": "failures come from the scoring function: better language statistics will fix them [supported: words_down +4.07]",
+            "weights_top": [
+              [
+                "add_words",
+                1.6
+              ],
+              [
+                "words_down",
+                1.6
+              ],
+              [
+                "vocab_down",
+                1.6
+              ]
+            ]
+          },
+          "search": {
+            "rate": 0.0625,
+            "genome": "2-gram rand hill 1x4000",
+            "hypothesis": "failures come from the climb: a smarter acceptance rule will escape local optima [supported: iters_up +2.02]",
+            "weights_top": [
+              [
+                "iters_up",
+                2.0480000000000005
+              ],
+              [
+                "use_anneal",
+                1.0
+              ],
+              [
+                "use_hill",
+                1.0
+              ]
+            ]
+          },
+          "diversify": {
+            "rate": 0.0,
+            "genome": "2-gram freq hill 1x1000",
+            "hypothesis": "failures are bad luck: more, better-spread starting points will fix them [supported: init_frequency +0.06]",
+            "weights_top": [
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "restarts_down",
+                1.0
+              ],
+              [
+                "init_random",
+                0.8
+              ]
+            ]
+          },
+          "efficiency": {
+            "rate": 0.08333333333333333,
+            "genome": "2-gram rand hill polish 1x1000",
+            "hypothesis": "failures are wasted budget: better moves per evaluation will fix them [supported: add_polish +4.06]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "swap_uniform",
+                1.0
+              ],
+              [
+                "restarts_down",
+                1.0
+              ]
+            ]
+          },
+          "explorer": {
+            "rate": 0.041666666666666664,
+            "genome": "2-gram freq hill polish 1x1000",
+            "hypothesis": "nobody knows yet: sample every kind of edit [supported: add_polish +2.03]",
+            "weights_top": [
+              [
+                "add_polish",
+                1.6
+              ],
+              [
+                "init_frequency",
+                1.6
+              ],
+              [
+                "ngram_up",
+                1.0
+              ]
+            ]
+          }
+        },
+        "heldout": 0.16666666666666666
+      }
+    ]
+  },
+  "single_equal_compute": [
+    {
+      "second_order": false,
+      "seed": 0,
+      "final": {
+        "ngram": 4,
+        "word_weight": 0.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 8.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5208333333333334,
+      "rounds": 39,
+      "accepted": 13,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.08333333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "2-gram rand hill polish 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill ranked polish 2x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill polish 4x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.14583333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 4x2000",
+          "child": "2-gram rand anneal T2 polish 4x2000",
+          "parent_rate": 0.14583333333333334,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 polish 4x2000",
+          "child": "2-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "2-gram rand anneal T2 ranked polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.08333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "2-gram rand anneal T1 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.16666666666666666,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 polish 8x2000",
+          "child": "3-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.20833333333333334,
+          "child_rate": 0.3125,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T2 polish 8x2000",
+          "child": "3-gram freq anneal T2 polish 8x2000",
+          "parent_rate": 0.3125,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T2 polish 8x2000",
+          "parent_rate": 0.3125,
+          "child_rate": 0.3541666666666667,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T1 polish 8x2000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x2000",
+          "child": "4-gram rand anneal T2 polish 8x4000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.3958333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram freq anneal T2 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 16x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 8x8000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 16x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.3958333333333333,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "3-gram rand anneal T2 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T2 polish 8x8000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.20833333333333334,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T2 polish 8x4000",
+          "child": "4-gram rand anneal T4 polish 8x4000",
+          "parent_rate": 0.3958333333333333,
+          "child_rate": 0.4583333333333333,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T4 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 8x4000",
+          "parent_rate": 0.4583333333333333,
+          "child_rate": 0.4791666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand hill polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.25,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 16x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish k=0.001 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish k=0.001 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T16 polish 8x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 16x4000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x4000",
+          "child": "4-gram rand anneal T8 polish 8x8000",
+          "parent_rate": 0.4791666666666667,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T4 polish 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.2708333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 16x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 8x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram rand anneal T8 polish 16x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "4-gram rand anneal T8 polish 8x8000",
+          "child": "4-gram freq anneal T8 polish 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5208333333333334,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "4-gram freq anneal T8 polish 8x8000",
+          "child": "4-gram freq anneal T8 ranked polish 8x8000",
+          "parent_rate": 0.5208333333333334,
+          "child_rate": 0.08333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.10416666666666667,
+        0.14583333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.20833333333333334,
+        0.3125,
+        0.3125,
+        0.3541666666666667,
+        0.3541666666666667,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.3958333333333333,
+        0.4583333333333333,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.4791666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 15,
+        "recurrence": 11,
+        "opposing": 1
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.4739583333333333
+    },
+    {
+      "second_order": false,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 8,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.5833333333333334,
+      "rounds": 39,
+      "accepted": 9,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill k=0.1 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.1875,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 2x2000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.25,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 2x4000",
+          "parent_rate": 0.25,
+          "child_rate": 0.25,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 4x2000",
+          "parent_rate": 0.25,
+          "child_rate": 0.3333333333333333,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq hill 4x2000",
+          "child": "3-gram words\u00d72 freq hill 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq hill 4x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 4x2000",
+          "parent_rate": 0.3333333333333333,
+          "child_rate": 0.3541666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 4x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x2000",
+          "parent_rate": 0.3541666666666667,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x2000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x4000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5833333333333334,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d74 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x4000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 vocab=10000 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 k=0.001 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 8x16000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5625,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "words_down",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d71 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "vocab_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 vocab=10000 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "words_up",
+          "target": "objective",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d74 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.3541666666666667,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq hill 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4583333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 4x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 k=0.1 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "3-gram words\u00d72 freq anneal T2 8x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.4791666666666667,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 freq anneal T2 8x8000",
+          "child": "2-gram words\u00d72 freq anneal T2 16x8000",
+          "parent_rate": 0.5833333333333334,
+          "child_rate": 0.5833333333333334,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.25,
+        0.25,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3541666666666667,
+        0.5,
+        0.5,
+        0.5,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334,
+        0.5833333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 16,
+        "opposing": 11,
+        "recurrence": 6
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.5364583333333334
+    },
+    {
+      "second_order": false,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 4,
+        "temp0": 8.0,
+        "smoothing": 0.1,
+        "vocab": 3000
+      },
+      "final_rate": 0.625,
+      "rounds": 39,
+      "accepted": 14,
+      "runs_spent": 1920,
+      "steps": [
+        {
+          "round": 1,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 1x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.020833333333333332,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x2000",
+          "child": "2-gram rand hill 1x4000",
+          "parent_rate": 0.020833333333333332,
+          "child_rate": 0.0625,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill polish 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "1-gram rand hill 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill 2x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x4000",
+          "child": "2-gram rand anneal T2 2x4000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.125,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 2x4000",
+          "child": "2-gram rand anneal T2 2x8000",
+          "parent_rate": 0.125,
+          "child_rate": 0.22916666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x8000",
+          "parent_rate": 0.22916666666666666,
+          "child_rate": 0.2708333333333333,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 9,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x16000",
+          "parent_rate": 0.2708333333333333,
+          "child_rate": 0.2916666666666667,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 10,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T2 2x16000",
+          "child": "3-gram rand anneal T4 2x16000",
+          "parent_rate": 0.2916666666666667,
+          "child_rate": 0.375,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 11,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 1x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.2916666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 12,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 2x32000",
+          "parent_rate": 0.375,
+          "child_rate": 0.3125,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 13,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T4 4x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 14,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T4 2x16000",
+          "child": "3-gram rand anneal T8 2x16000",
+          "parent_rate": 0.375,
+          "child_rate": 0.4375,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 15,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand anneal T8 4x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 16,
+          "op": "use_hill",
+          "target": "search",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand hill 2x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.125,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 17,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "3-gram rand anneal T8 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.4375,
+          "child_rate": 0.5,
+          "accepted": true,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 18,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 19,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4166666666666667,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 20,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 21,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 22,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 4x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 23,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram freq anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.4375,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 24,
+          "op": "temp_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T4 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 25,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.5,
+          "child_rate": 0.375,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 26,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 ranked k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 27,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 4x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 28,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.3333333333333333,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 29,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.5,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 30,
+          "op": "remove_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram rand anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 31,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x32000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5416666666666666,
+          "accepted": false,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 32,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 ranked k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 33,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 34,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 freq anneal T8 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.6041666666666666,
+          "accepted": false,
+          "expected": 0.03,
+          "note": ""
+        },
+        {
+          "round": 35,
+          "op": "temp_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T16 k=0.1 2x16000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.5,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 36,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x16000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.6041666666666666,
+          "accepted": true,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 37,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "parent_rate": 0.6041666666666666,
+          "child_rate": 0.625,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 38,
+          "op": "restarts_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "child": "3-gram words\u00d72 rand anneal T8 k=0.1 2x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.6041666666666666,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 39,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "3-gram words\u00d72 rand anneal T8 k=0.1 4x8000",
+          "child": "3-gram words\u00d72 freq anneal T8 k=0.1 4x8000",
+          "parent_rate": 0.625,
+          "child_rate": 0.625,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333,
+        0.2916666666666667,
+        0.375,
+        0.375,
+        0.375,
+        0.375,
+        0.4375,
+        0.4375,
+        0.4375,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.6041666666666666,
+        0.625,
+        0.625,
+        0.625
+      ],
+      "anomaly_counts": {
+        "opposing": 9,
+        "mismatch": 12,
+        "recurrence": 6
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.6510416666666666
+    }
+  ],
+  "single_equal_rounds": [
+    {
+      "second_order": false,
+      "seed": 0,
+      "final": {
+        "ngram": 2,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": true,
+        "iters": 2000,
+        "restarts": 4,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.20833333333333334,
+      "rounds": 8,
+      "accepted": 5,
+      "runs_spent": 432,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.08333333333333333,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "3-gram rand hill 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.06,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x2000",
+          "child": "2-gram rand hill polish 2x2000",
+          "parent_rate": 0.08333333333333333,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "swap_ranked",
+          "target": "efficiency",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill ranked polish 2x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.041666666666666664,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill polish 2x2000",
+          "child": "2-gram rand hill polish 4x2000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.14583333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill polish 4x2000",
+          "child": "2-gram rand anneal T2 polish 4x2000",
+          "parent_rate": 0.14583333333333334,
+          "child_rate": 0.20833333333333334,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.10416666666666667,
+        0.10416666666666667,
+        0.14583333333333334,
+        0.20833333333333334
+      ],
+      "anomaly_counts": {
+        "mismatch": 3,
+        "recurrence": 1
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.16666666666666666
+    },
+    {
+      "second_order": false,
+      "seed": 1,
+      "final": {
+        "ngram": 2,
+        "word_weight": 2.0,
+        "init": "frequency",
+        "search": "hill",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 2000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.25,
+      "rounds": 7,
+      "accepted": 4,
+      "runs_spent": 384,
+      "steps": [
+        {
+          "round": 1,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "smoothing_up",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram rand hill k=0.1 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_words",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "smoothing_down",
+          "target": "data",
+          "kind": "data",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill k=0.001 2x1000",
+          "parent_rate": 0.0,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.01,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x1000",
+          "child": "2-gram words\u00d72 rand hill 2x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.1875,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "iters_down",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 rand hill 2x1000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "init_frequency",
+          "target": "init",
+          "kind": "structural",
+          "parent": "2-gram words\u00d72 rand hill 2x2000",
+          "child": "2-gram words\u00d72 freq hill 2x2000",
+          "parent_rate": 0.1875,
+          "child_rate": 0.25,
+          "accepted": true,
+          "expected": 0.03,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1875,
+        0.1875,
+        0.25
+      ],
+      "anomaly_counts": {
+        "mismatch": 2,
+        "opposing": 2
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.22916666666666666
+    },
+    {
+      "second_order": false,
+      "seed": 2,
+      "final": {
+        "ngram": 3,
+        "word_weight": 0.0,
+        "init": "random",
+        "search": "anneal",
+        "swap": "uniform",
+        "polish": false,
+        "iters": 8000,
+        "restarts": 2,
+        "temp0": 2.0,
+        "smoothing": 0.01,
+        "vocab": 3000
+      },
+      "final_rate": 0.2708333333333333,
+      "rounds": 8,
+      "accepted": 6,
+      "runs_spent": 432,
+      "steps": [
+        {
+          "round": 1,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x1000",
+          "child": "2-gram rand hill 1x2000",
+          "parent_rate": 0.0,
+          "child_rate": 0.020833333333333332,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 2,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x2000",
+          "child": "2-gram rand hill 1x4000",
+          "parent_rate": 0.020833333333333332,
+          "child_rate": 0.0625,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 3,
+          "op": "add_polish",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill polish 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0625,
+          "accepted": false,
+          "expected": 0.02,
+          "note": ""
+        },
+        {
+          "round": 4,
+          "op": "ngram_down",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "1-gram rand hill 1x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.0,
+          "accepted": false,
+          "expected": 0.0,
+          "note": ""
+        },
+        {
+          "round": 5,
+          "op": "restarts_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand hill 1x4000",
+          "child": "2-gram rand hill 2x4000",
+          "parent_rate": 0.0625,
+          "child_rate": 0.10416666666666667,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 6,
+          "op": "use_anneal",
+          "target": "search",
+          "kind": "structural",
+          "parent": "2-gram rand hill 2x4000",
+          "child": "2-gram rand anneal T2 2x4000",
+          "parent_rate": 0.10416666666666667,
+          "child_rate": 0.125,
+          "accepted": true,
+          "expected": 0.04,
+          "note": ""
+        },
+        {
+          "round": 7,
+          "op": "iters_up",
+          "target": "search",
+          "kind": "parametric",
+          "parent": "2-gram rand anneal T2 2x4000",
+          "child": "2-gram rand anneal T2 2x8000",
+          "parent_rate": 0.125,
+          "child_rate": 0.22916666666666666,
+          "accepted": true,
+          "expected": 0.05,
+          "note": ""
+        },
+        {
+          "round": 8,
+          "op": "ngram_up",
+          "target": "objective",
+          "kind": "structural",
+          "parent": "2-gram rand anneal T2 2x8000",
+          "child": "3-gram rand anneal T2 2x8000",
+          "parent_rate": 0.22916666666666666,
+          "child_rate": 0.2708333333333333,
+          "accepted": true,
+          "expected": 0.06,
+          "note": ""
+        }
+      ],
+      "curve": [
+        0.020833333333333332,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.10416666666666667,
+        0.125,
+        0.22916666666666666,
+        0.2708333333333333
+      ],
+      "anomaly_counts": {
+        "opposing": 1
+      },
+      "diagnoses": [],
+      "findings": [],
+      "heldout": 0.23958333333333334
+    }
+  ]
+}
