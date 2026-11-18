@@ -91,7 +91,8 @@ $ python3 -m cipherlab.cli solve --genome '{}' --text "$T"
   decrypt: hat rthtchopt veentr sh hat dhisfmt ysind ef hat reei sfr dsor hash hat haotl ...
   acc    : 0.019          # baseline: 2-gram objective, random start, 1 × 1,000 swaps
 
-$ python3 -m cipherlab.cli solve --genome '{"ngram":4,"word_weight":2.0,"init":"frequency","search":"anneal","temp0":10.0,"iters":5000,"restarts":4}' --text "$T"
+$ python3 -m cipherlab.cli solve --text "$T" \
+    --genome '{"ngram":4,"word_weight":2.0,"init":"frequency","search":"anneal","temp0":10.0,"iters":5000,"restarts":4}'
   decrypt: the detective looked at the strange marks on the door and said that the thief had come in ...
   acc    : 1.0            # 4-gram + dictionary, frequency start, simulated annealing
 ```
@@ -254,21 +255,31 @@ Python 3.9+ with NumPy and Matplotlib. No API keys, no GPU, no network.
 ```bash
 git clone https://github.com/nitishsjsucs/rsi-research-studio-assignment-5.git
 cd rsi-research-studio-assignment-5
-python3 -m pip install numpy matplotlib      # if you don't have them
+python3 -m pip install numpy matplotlib      # only if you don't have them
 
 python3 run_tests.py                         # 35 unit tests, about 1 s
-python3 labs/02_second_order_diagnostics/10_06_run_so_rsi/lab.py --quick   # one lab, under a minute
 python3 run_all.py --quick                   # all 18 labs with small budgets, about 4 min
 python3 run_all.py                           # the full runs whose outputs are committed, about 47 min
 ```
 
-The harness is also a command-line tool ([`cli.py`](cipherlab/cli.py)):
+Run a single lab (here 10.06) in under a minute:
 
-| Command | What it does |
-|---|---|
-| `python3 -m cipherlab.cli render --genome '{...}'` | prints a program's Python source |
-| `python3 -m cipherlab.cli solve --genome '{...}' --text "..."` | encrypts your sentence and breaks it |
-| `python3 -m cipherlab.cli evaluate --genome '{...}' --split steering` | scores a program on a split (held-out refuses unless `--unseal`) |
+```bash
+python3 labs/02_second_order_diagnostics/10_06_run_so_rsi/lab.py --quick
+```
+
+The harness is also a command-line tool ([`cli.py`](cipherlab/cli.py)) with three commands:
+
+- **`render`** prints a program's Python source.
+- **`solve`** encrypts your own sentence and breaks it.
+- **`evaluate`** scores a program on a split (the held-out split refuses unless you pass `--unseal`).
+
+```bash
+python3 -m cipherlab.cli render --genome '{"ngram": 4, "word_weight": 2.0}'    # see the program a genome becomes
+```
+
+A working `solve` example is in [The problem](#the-problem). Use a sentence of 100+ characters: short texts
+give the statistics too little to work with, which is why the labs' 40–80 character ciphers are the hardest.
 
 ---
 
